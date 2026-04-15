@@ -1,0 +1,3153 @@
+{
+  "venues": {
+    "PRICE": {
+      "spaces": [
+        {
+          "id": "ballroom-east",
+          "name": "Ballroom East",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center 最大室内活动空间之一。高挑天花板，专业灯光音响系统，适合大型晚会、典礼、宴会。可分隔使用。CSSA 春晚传统首选场地。",
+          "system": "university-centers",
+          "location": "Price Center East, L2",
+          "area_sqft": 5971,
+          "capacity": {
+            "theater": 425,
+            "banquet": 232,
+            "classroom": 200,
+            "reception": 600
+          },
+          "max_capacity": 600,
+          "type": "Ballroom / 多功能厅",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $125 / Usage $188\nEvening Prime $850\nAfternoon $375 / Morning $425",
+            "external": "$1,700 (Evening)\n$850 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "双投影+音响",
+            "灯光系统",
+            "舞台可搭建"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu\n(858) 534-2230",
+          "notes": "有完整Stage和幕帘系统",
+          "tags": [
+            "新生见面会｜演出类活动"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ballroom-west-a",
+          "name": "Ballroom West - A",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center West 二楼中型 ballroom，可与 West B 打通合并为 West AB。适合中型活动、宣讲会、workshop。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 4050,
+          "capacity": {
+            "theater": 250,
+            "banquet": 176,
+            "classroom": 100,
+            "reception": 250
+          },
+          "max_capacity": 250,
+          "type": "Ballroom",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $100 / Usage $75\nEvening $400\nAfternoon $150 / Morning $175",
+            "external": "$800 (Evening)\n$400 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "可与 West B 合并",
+          "tags": [
+            "新生见面会｜演出类活动"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ballroom-west-b",
+          "name": "Ballroom West - B",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center West 二楼大型 ballroom，面积比 East 更大。可与 West A 合并为超大空间。适合大型活动。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 6750,
+          "capacity": {
+            "theater": 600,
+            "banquet": 352,
+            "classroom": 200,
+            "reception": 750
+          },
+          "max_capacity": 750,
+          "type": "Ballroom",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $150 / Usage $138\nEvening $750\nAfternoon $275 / Morning $325",
+            "external": "$1,500 (Evening)\n$750 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "可与 West A 合并",
+          "tags": [
+            "新生见面会｜演出类活动"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ballroom-west-ab",
+          "name": "Ballroom West - AB (合并)",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "West A + B 打通后的超大空间，UCSD 最大室内活动场地之一。适合千人级活动、大型展会、毕业典礼级别活动。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 10800,
+          "capacity": {
+            "theater": 850,
+            "banquet": 504,
+            "classroom": 300,
+            "reception": 1250
+          },
+          "max_capacity": 1250,
+          "type": "超大 Ballroom",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $250 / Usage $213\nEvening $1,150\nAfternoon $425 / Morning $500",
+            "external": "$2,300 (Evening)\n$1,150 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "双投影+全套音响+灯光"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "UCSD 最大室内空间之一",
+          "tags": [
+            "春晚备选｜演出类活动"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "theater",
+          "name": "Theater",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center 内专业剧场空间，固定阶梯式座椅475座，自带 Lobby。适合演出、放映会、大型演讲。专业舞台灯光系统。",
+          "system": "university-centers",
+          "location": "Price Center East, L1",
+          "area_sqft": 4368,
+          "capacity": {
+            "theater": 475
+          },
+          "max_capacity": 475,
+          "type": "Theater / 剧场",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $75 / Usage $150\nEvening $500\nAfternoon $300 / Morning $350",
+            "external": "$1,000 (Evening)\n$500 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "专业舞台灯光+音响+投影"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "Theater Lobby (2,621 sqft) 可同时预约",
+          "tags": [
+            "演出类活动"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "the-forum",
+          "name": "The Forum",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center 四楼开放式活动空间，配有 Terrace 户外露台。适合中型招待会、展览、workshop。挑高设计，自然采光好。",
+          "system": "university-centers",
+          "location": "Price Center East, L4",
+          "area_sqft": 2270,
+          "capacity": {
+            "theater": 120,
+            "banquet": 80,
+            "classroom": 42,
+            "reception": 150,
+            "boardroom": 30,
+            "circle": 50,
+            "u_shape": 45,
+            "hollow_square": 46
+          },
+          "max_capacity": 150,
+          "type": "多功能活动空间",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $75 / Usage $138\nEvening $400\nAfternoon $275 / Morning $325",
+            "external": "$800 (Evening)\n$400 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "含 The Terrace 户外露台",
+          "tags": [
+            "职业宣讲会｜学术宣讲会"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "dance-studio",
+          "name": "Dance Studio",
+          "category": "University Centers — Ballroom & Theater",
+          "description": "Price Center 舞蹈工作室，木质弹簧地板，镜面墙，适合舞蹈排练、体操、瑜伽类活动。",
+          "system": "university-centers",
+          "location": "Price Center, L2",
+          "area_sqft": 1290,
+          "capacity": {
+            "max": 49
+          },
+          "max_capacity": 49,
+          "type": "Dance Studio",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $75 / Usage $38\nEvening $113\nAfternoon $75 / Morning $150",
+            "external": "$225 (Evening)\n$113 (Afternoon)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "镜面墙+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "弹簧地板",
+          "tags": [
+            "彩排｜试听会"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "john-muir-college-room",
+          "name": "John Muir College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "Price Center 最大会议室之一(1,000sqft)，可容纳70人 Theater。配AV设备，适合中型会议/讲座。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 1000,
+          "capacity": {
+            "theater": 70,
+            "banquet": 48,
+            "classroom": 27,
+            "reception": 70,
+            "boardroom": 22,
+            "circle": 38,
+            "u_shape": 24,
+            "hollow_square": 36
+          },
+          "max_capacity": 70,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "Setup $50 / Usage $68\nEvening $68 / Morning $60",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "PC 最大会议室",
+          "tags": [
+            "例会｜Study Jam 属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "bear-room",
+          "name": "Bear Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "700sqft 中型会议室，标准AV设备。适合 30-60 人活动。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 700,
+          "capacity": {
+            "theater": 60,
+            "banquet": 40,
+            "classroom": 21,
+            "reception": 60,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 60,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "red-shoe-room",
+          "name": "Red Shoe Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "700sqft 中型会议室，与 Bear Room 同规格。适合部门例会、workshop。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 700,
+          "capacity": {
+            "theater": 60,
+            "banquet": 40,
+            "classroom": 21,
+            "reception": 60,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 60,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "roosevelt-college-room",
+          "name": "Roosevelt College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "734sqft 中型会议室。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 734,
+          "capacity": {
+            "theater": 60,
+            "banquet": 40,
+            "classroom": 21,
+            "reception": 60,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 60,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "marshall-college-room",
+          "name": "Marshall College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "747sqft 中型会议室。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 747,
+          "capacity": {
+            "theater": 60,
+            "banquet": 40,
+            "classroom": 21,
+            "reception": 60,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 60,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "warren-college-room",
+          "name": "Warren College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "644sqft 会议室，适合中小型会议。",
+          "system": "university-centers",
+          "location": "Price Center West, L3",
+          "area_sqft": 644,
+          "capacity": {
+            "theater": 40,
+            "banquet": 40,
+            "classroom": 21,
+            "reception": 50,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 50,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "green-table-room",
+          "name": "Green Table Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "670sqft 会议室。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 670,
+          "capacity": {
+            "theater": 40,
+            "banquet": 32,
+            "classroom": 21,
+            "reception": 40,
+            "boardroom": 22,
+            "circle": 30
+          },
+          "max_capacity": 40,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "governance-chambers",
+          "name": "Governance Chambers",
+          "category": "University Centers — Price Center 会议室",
+          "description": "700sqft 正式会议厅，两间相连，适合理事会/委员会类正式会议。",
+          "system": "university-centers",
+          "location": "Price Center East, L4",
+          "area_sqft": 700,
+          "capacity": {
+            "theater": 40,
+            "classroom": 15,
+            "reception": 49,
+            "boardroom": 22,
+            "circle": 26,
+            "hollow_square": 22
+          },
+          "max_capacity": 49,
+          "type": "Meeting Room / 议事厅",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "两间相连；含U-shape 20",
+          "tags": [
+            "例会｜Study Jam 属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "snake-path-room",
+          "name": "Snake Path Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "700sqft 会议室。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 700,
+          "capacity": {
+            "max": 60
+          },
+          "max_capacity": 60,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "需要看看还在不在。"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "student-leadership-chambers",
+          "name": "Student Leadership Chambers",
+          "category": "University Centers — Price Center 会议室",
+          "description": "会议室，适合学生组织理事会。",
+          "system": "university-centers",
+          "location": "Price Center, L4",
+          "area_sqft": null,
+          "capacity": {
+            "max": 40
+          },
+          "max_capacity": 40,
+          "type": "Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$50 setup / $68",
+            "external": "$135"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "例会｜Study Jam 属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "sixth-college-room",
+          "name": "Sixth College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "322sqft 小型会议室，仅 Boardroom 配置。",
+          "system": "university-centers",
+          "location": "Price Center East, L3",
+          "area_sqft": 322,
+          "capacity": {
+            "boardroom": 12
+          },
+          "max_capacity": 12,
+          "type": "小型 Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$30 setup / $50",
+            "external": "$100"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "基本AV"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "仅 Boardroom",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "revelle-college-room",
+          "name": "Revelle College Room",
+          "category": "University Centers — Price Center 会议室",
+          "description": "375sqft 小型会议室，仅 Boardroom 配置。",
+          "system": "university-centers",
+          "location": "Price Center West, L2",
+          "area_sqft": 375,
+          "capacity": {
+            "boardroom": 12
+          },
+          "max_capacity": 12,
+          "type": "小型 Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$30 setup / $68",
+            "external": "$100"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "基本AV"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "仅 Boardroom",
+          "tags": [
+            "部门例会｜属于 Meeting Space"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "the-loft",
+          "name": "The LOFT",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "2009年创立的学生中心表演酒廊，位于 Price Center 二楼。集咖啡厅(Zanzibar Cafe)、现场演出、电影放映、艺术展览于一体。温馨亲密的氛围，适合中小型音乐会/脱口秀/影片放映。提供啤酒和葡萄酒。",
+          "system": "university-centers",
+          "location": "Price Center East, L2",
+          "area_sqft": null,
+          "capacity": {
+            "max": 150
+          },
+          "max_capacity": 150,
+          "type": "Coffee House /",
+          "rates": {
+            "rso": "价格需要查询",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "price-center-plaza",
+          "name": "Price Center Plaza",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Price Center 建筑群围合的户外广场，适合中型户外活动、表演、展览。",
+          "system": "university-centers",
+          "location": "Price Center 中庭",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "户外广场",
+          "rates": {
+            "rso": "免费",
+            "department": "Evening $125\nMorning $100",
+            "external": "$250"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备或租用"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [
+            "户外集市｜Tabling Space"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "演出酒廊,免费场租,需联系确认,需联系确认,True,University Centers,舞台+灯光+音响+投影,T-RES,reservations@ucsd.edu | theloft.ucsd.edu,私人活动：Cafe 营业时间后可用,音乐会,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "MATQD": {
+      "spaces": [
+        {
+          "id": "matthews-quad",
+          "name": "Matthews Quad",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Student Services Center 旁大型户外草坪，适合户外大型集会/运动会/festival。",
+          "system": "university-centers",
+          "location": "Student Services Center 旁",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "户外草坪",
+          "rates": {
+            "rso": "免费",
+            "department": "免费",
+            "external": "$1,500"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "外部$1,500",
+          "tags": [
+            "大型户外活动"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "STCTR": {
+      "spaces": [
+        {
+          "id": "dolores-huerta-philip-vera-cruz-room",
+          "name": "Dolores Huerta / Philip Vera Cruz Room",
+          "category": "University Centers — Student Center",
+          "description": "Student Center 主活动空间(1,281sqft)，可分隔为 Huerta Room 和 Vera Cruz Room 独立使用。适合中型会议/活动。",
+          "system": "university-centers",
+          "location": "Original Student Center, L1",
+          "area_sqft": 1281,
+          "capacity": {
+            "theater": 80,
+            "banquet": 56,
+            "classroom": 39,
+            "reception": 80,
+            "boardroom": 34,
+            "circle": 42
+          },
+          "max_capacity": 80,
+          "type": "Meeting Room / 活动空间",
+          "rates": {
+            "rso": "免费",
+            "department": "Huerta: $50/$68\nVera Cruz: $50/$68\n合并: $100/$135",
+            "external": "Huerta: $135\nVera Cruz: $135\n合并: $270"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "可分隔为两独立房间",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "thich-nhat-hanh-room",
+          "name": "Thich Nhat Hanh Room",
+          "category": "University Centers — Student Center",
+          "description": "Student Center 小型会议室(439sqft)，仅 Boardroom 配置10人。",
+          "system": "university-centers",
+          "location": "Original Student Center, L1",
+          "area_sqft": 439,
+          "capacity": {
+            "boardroom": 10
+          },
+          "max_capacity": 10,
+          "type": "小型 Meeting Room",
+          "rates": {
+            "rso": "免费",
+            "department": "$30 setup / $50",
+            "external": "$100"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "基本AV"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "stage-room-patio",
+          "name": "Stage Room & Patio",
+          "category": "University Centers — Student Center",
+          "description": "Student Center 特色空间(4,529sqft)，室内舞台+户外大 Patio。适合演出/大型派对/户外活动。",
+          "system": "university-centers",
+          "location": "Original Student Center",
+          "area_sqft": 4529,
+          "capacity": {
+            "theater": 100,
+            "banquet": 72,
+            "reception": 600,
+            "boardroom": 22,
+            "u_shape": 20
+          },
+          "max_capacity": 600,
+          "type": "演出+户外空间",
+          "rates": {
+            "rso": "免费场租\n(Setup $125)",
+            "department": "Setup $125 / Usage $188\nEvening $850\nAfternoon $375 / Morning $425",
+            "external": "$1,700 (Evening)"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "舞台+灯光+音响"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "Patio Only: Reception 300",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "EPST": {
+      "spaces": [
+        {
+          "id": "epstein-family-amphitheatre",
+          "name": "Epstein Family Amphitheatre",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "2022年落成的户外圆形剧场，由 Safdie Rabines 设计。两段式碗形座椅+大面积草坪坡地，可容纳2,650人。专业舞台、灯光、音响系统。紧邻蓝线 Trolley 站，交通极其便利。适合大型音乐会、文化活动、典礼。",
+          "system": "university-centers",
+          "location": "Price Center 东侧户外",
+          "area_sqft": null,
+          "capacity": {
+            "max": 2650
+          },
+          "max_capacity": 2650,
+          "type": "户外 Amphitheatre",
+          "rates": {
+            "rso": "免费场租\n(音响/灯光另计)",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "专业舞台灯光+Meyer Sound 音响系统"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "户外大型活动首选；需考虑天气",
+          "tags": [
+            "大型户外活动",
+            "音乐会"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "LIBWK": {
+      "spaces": [
+        {
+          "id": "library-walk-north",
+          "name": "Library Walk North",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Library Walk 北段（编号 1967–1993），位于图书馆前、Price Center 前。UCSD 人流量最大的户外 tabling 区域，适合宣传摊位、户外集市、签名活动。",
+          "system": "university-centers",
+          "location": "图书馆前 / Price Center 前",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Tabling Space",
+          "rates": {
+            "rso": "免费",
+            "department": "Evening $150\nMorning $75",
+            "external": "$300"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "编号 1967–1993，UCSD 最繁忙户外区域北段",
+          "tags": [
+            "户外集市",
+            "tabling"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "library-walk-central",
+          "name": "Library Walk Central",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Library Walk 中段（编号 1994–2003），靠近 Target。适合 tabling、宣传摊位、户外集市。",
+          "system": "university-centers",
+          "location": "靠近 Target",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Tabling Space",
+          "rates": {
+            "rso": "免费",
+            "department": "Evening $150\nMorning $75",
+            "external": "$300"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "编号 1994–2003，Library Walk 中段",
+          "tags": [
+            "户外集市",
+            "tabling"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "library-walk-south",
+          "name": "Library Walk South",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Library Walk 南段（编号 2003–2052），靠近 Center Hall。适合 tabling、宣传摊位、户外集市。",
+          "system": "university-centers",
+          "location": "靠近 Center Hall",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Tabling Space",
+          "rates": {
+            "rso": "免费",
+            "department": "Evening $150\nMorning $75",
+            "external": "$300"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "编号 2003–2052，Library Walk 南段",
+          "tags": [
+            "户外集市",
+            "tabling"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "RUPLN": {
+      "spaces": [
+        {
+          "id": "rupertus-lane",
+          "name": "Rupertus Lane",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "户外通道空间。",
+          "system": "university-centers",
+          "location": "Price Center 区域",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "户外通道",
+          "rates": {
+            "rso": "免费",
+            "department": "免费",
+            "external": "$1,500"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "TWNSQ": {
+      "spaces": [
+        {
+          "id": "town-square",
+          "name": "Town Square",
+          "category": "University Centers — 户外 & 特色场地",
+          "description": "Student Center 旁户外广场。仅限 RSO 和校内部门使用。",
+          "system": "university-centers",
+          "location": "Student Center 旁",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "户外广场",
+          "rates": {
+            "rso": "免费（RSO不可用Evening）",
+            "department": "免费",
+            "external": "$1,500"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "需自备"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "RSO 不可预约 Evening",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "DIB": {
+      "spaces": [
+        {
+          "id": "design-innovation-building-dib",
+          "name": "Design & Innovation Building (DIB)",
+          "category": "独立预约场地",
+          "description": "UCSD 设计与创新大楼，现代开放式设计。5间可预约房间分布在2-4楼，配有白板、投影等。适合 workshop、黑客松、设计冲刺、小型讲座。8am-6pm 开放。",
+          "system": "independent",
+          "location": "Design & Innovation Bldg",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "2F: Rm 208 (Event Room+Terrace)": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "3F: Rm 306": {
+      "spaces": [
+        {
+          "id": " 307",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "4F: Rm 406": {
+      "spaces": [
+        {
+          "id": " 407,208306307406407,,,,,,,,,,407,教室 / Workshop 空间,免费（UCSD affiliated）,免费（UCSD）,需联系确认,True,Design Lab / DIB,白板+投影+AV,Skedda | 提前1 Quarter (406提前2周),dib-reservations-g@ucsd.edu,Rm 208 含户外 Terrace,部门例会 | 学术讲座,True\r",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "GREAT": {
+      "spaces": [
+        {
+          "id": "the-great-hall-international-house",
+          "name": "The Great Hall (International House)",
+          "category": "独立预约场地",
+          "description": "I-House 标志性活动大厅(4,000sqft)，拥有壮观太平洋海景和两个露天露台。高端建筑设计，适合宴会/婚礼/大型招待会/文化活动。含200把椅子、20张圆桌、6张长桌等设备。UCSD Catering 为唯一餐饮供应商。另有 Asante 会议室可配套使用。",
+          "system": "university-centers",
+          "location": "International House",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(ERC 旁)": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "9500 Gilman Dr,4000,,200,,,,,,,,200,大厅 / 宴会空间": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "（海景）,Half Day $900 | Full Day $1": {
+      "spaces": [
+        {
+          "id": "100,同 RSO 价 | (Half Day $900 / Full $1",
+          "name": "100),Off-Campus: $3",
+          "category": "300/$3",
+          "description": "950\nNon-Profit: $2",
+          "system": "790/$3",
+          "location": "375\n加时 $200/h,False,International House,音响(Basic $100-150)\n投影(Built-in $100-150)\n舞台($150/8 panels)\n钢琴($75),T-RES 或电话/邮件,ihouseevents@ucsd.edu\n(858) 822-1791\nBarbara Ramsey,50%押金(校外)；需 UCSD Catering\n周一-五 8am-10pm\n周六 Asante 6pm-10pm,新生见面会\n高端宴会,True\r",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "ASANT": {
+      "spaces": [
+        {
+          "id": "asante-meeting-rooms-i-house",
+          "name": "Asante Meeting Rooms (I-House)",
+          "category": "独立预约场地",
+          "description": "I-House 附属的3间会议室，可独立预约，适合小型会议/工作坊。Asante Terrace 户外空间可额外租用($100)。",
+          "system": "university-centers",
+          "location": "International House",
+          "area_sqft": 1231000123600123600,
+          "capacity": {},
+          "max_capacity": 123,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "123AD: $80/$140\n123B: $70/$120\n123C: $70/$120\n(Half/Full Day)",
+            "department": "同 RSO 价",
+            "external": "123AD: $200/$350\n123B: $175/$300\n123C: $175/$300"
+          },
+          "rso_free": false,
+          "managed_by": "International House",
+          "equipment": [
+            "基本AV"
+          ],
+          "booking_method": "同 Great Hall",
+          "contact": "ihouseevents@ucsd.edu",
+          "notes": "Asante Terrace 额外 $100",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "CALIT": {
+      "spaces": [
+        {
+          "id": "atkinson-hall-qualcomm-institute",
+          "name": "Atkinson Hall (Qualcomm Institute)",
+          "category": "独立预约场地",
+          "description": "Qualcomm Institute 总部，UCSD 最先进的 4K 影院/剧场空间之一。201座 Auditorium 配备 4K 投影系统，适合技术演示、放映会、学术演讲、企业活动。另有 Pre-Function Area 可做招待区。",
+          "system": "independent",
+          "location": "Atkinson Hall",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(Warren College 区域),,,,,,,,,,,201,Auditorium / 4K 影院,需联系 QI,需联系 QI | (含1 event staff | +1 AV staff | +基本设备),需联系 QI | (4K投影额外收费),False,Qualcomm Institute,4K 投影+专业音响 | +Meyer Sound | +标准家具+指示牌,qi.ucsd.edu/events-services/ | 或 sites.google.com/ucsd.edu/qi-events,qi-events@ucsd.edu,4K 投影额外收费；全服务式,职业宣讲会,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "CPMC": {
+      "spaces": [
+        {
+          "id": "conrad-prebys-concert-hall",
+          "name": "Conrad Prebys Concert Hall",
+          "category": "独立预约场地",
+          "description": "由著名声学大师 Cyril M. Harris 设计的世界级音乐厅。350座，专为当代室内乐和小型合奏设计，声学效果卓越。位于 84,000sqft 的 Conrad Prebys Music Center 内。",
+          "system": "independent",
+          "location": "Conrad Prebys Music Center",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "conrad-prebys-recital-hall",
+          "name": "Conrad Prebys Recital Hall",
+          "category": "独立预约场地",
+          "description": "150座独奏厅，设计用于亲密的独奏/小型演出/讲座。可选环绕声扩散系统。",
+          "system": "independent",
+          "location": "Conrad Prebys Music Center",
+          "area_sqft": null,
+          "capacity": {
+            "max": 150
+          },
+          "max_capacity": 150,
+          "type": "Recital Hall",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Music Department",
+          "equipment": [
+            "可选环绕声扩散"
+          ],
+          "booking_method": "联系 Music Dept",
+          "contact": "music-cms.ucsd.edu",
+          "notes": "适合小型音乐会/讲座",
+          "tags": [
+            "音乐会"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "conrad-prebys-experimental-theater",
+          "name": "Conrad Prebys Experimental Theater",
+          "category": "独立预约场地",
+          "description": "黑盒剧场，150座，配备 Meyer Sound Constellation 电声架构系统，可调节房间声学特性。灵活配置，适合实验性演出和跨界艺术。",
+          "system": "independent",
+          "location": "Conrad Prebys Music Center",
+          "area_sqft": null,
+          "capacity": {
+            "max": 150
+          },
+          "max_capacity": 150,
+          "type": "Black Box / 实验剧场",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Music Department",
+          "equipment": [
+            "Meyer Sound Constellation",
+            "可调声学系统"
+          ],
+          "booking_method": "联系 Music Dept",
+          "contact": "music-cms.ucsd.edu",
+          "notes": "可调声学——独特技术",
+          "tags": [
+            "音乐会"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(Revelle College 区域),,,,,,,,,,350,350,Concert Hall,需与 Music Dept 协商,需与 Music Dept 协商,需与 Music Dept 协商,False,Music Department,世界级声学设计 | 专业舞台灯光音响,联系 Music Dept | blink.ucsd.edu,music-cms.ucsd.edu,Cyril M. Harris 设计声学,音乐会,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "EBU3B": {
+      "spaces": [
+        {
+          "id": "cse-building-ebu3b",
+          "name": "CSE Building (EBU3B)",
+          "category": "独立预约场地",
+          "description": "计算机科学与工程大楼，共15间可预约会议室/教室分布在1-4楼。分三类：Self-Service(6间)、Reservation Required(6间)、Seminar(2间)。CSE 关联组织免费，非 CSE 需付费。",
+          "system": "independent",
+          "location": "CSE Building (EBU3B)",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "1F: 1202/1241/1242/1244": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "2F: 2109/2217": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "3F: 3109/3217": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "4F: 4109/4140/4217/4258/4262,12024258384,,,,,,,,,,4262,教室 / 会议室,免费（CSE affiliated）,CSE: $71-$78/h | Non-CSE: $103-$113/h | (大房间贵，小房间便宜),同 Non-CSE 价,True,CSE Department,投影+HDMI/VGA | 1244: 70 LCD+玻璃白板 | 各间有 AV hookup,邮件: cse-rooms@ucsd.edu | 自助: Skedda | 提前2-3个工作日,cse-rooms@ucsd.edu,1241/1242/1244 不对学生组织开放 | 仅限水，无食物,学术讲座,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "EBU1": {
+      "spaces": [
+        {
+          "id": "jacobs-hall-qualcomm-conf-center",
+          "name": "Jacobs Hall Qualcomm Conf Center",
+          "category": "独立预约场地",
+          "description": "Jacobs 工学院入口大厅旁的灵活会议中心，由两间房间+可开启隔断墙组成。可配置26/72/98/120人不同规模。适合研讨会/讲座/学生活动/大型会议。含大厅使用权。",
+          "system": "independent",
+          "location": "Jacobs Hall",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(EBU1 旁),,,,,,,,,,,120,Conference Center,免费（学生组织）,$125/h | (含 Jacobs Hall Lobby),External: $150/h,True,Jacobs School of Engineering,投影+音响+隔断墙,jacobsschool.ucsd.edu/facilities,facilities@eng.ucsd.edu,PIN 码进入(提前1周发送),职业宣讲会,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "SME": {
+      "spaces": [
+        {
+          "id": "asml-conference-center-sme-building",
+          "name": "ASML Conference Center (SME Building)",
+          "category": "独立预约场地",
+          "description": "结构与材料工程楼内的 indoor-outdoor 会议中心。室内95人+户外 Patio 200人。独特的室内外一体设计。",
+          "system": "independent",
+          "location": "SME Building",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": 200,
+          "type": "Conference Center",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(Indoor-Outdoor),免费（学生组织）,需联系确认,需联系确认,True,Jacobs School,AV 设备,jacobsschool.ucsd.edu/facilities,facilities@eng.ucsd.edu,独特 indoor-outdoor 设计,,False\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "FAH": {
+      "spaces": [
+        {
+          "id": "robert-conn-exec-conf-center-fah",
+          "name": "Robert Conn Exec Conf Center (FAH)",
+          "category": "独立预约场地",
+          "description": "Franklin Antonio Hall 4楼行政会议中心，两间房(4201/4202)。4201: 72人，4202: 32人(max 48)含 ServiceNow Terrace 露台。高端行政级配置。",
+          "system": "independent",
+          "location": "Franklin Antonio Hall, 4F",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": 4202,
+          "type": "Executive Conference",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": false,
+          "managed_by": "Jacobs School",
+          "equipment": [
+            "高端AV"
+          ],
+          "booking_method": "jacobsschool.ucsd.edu/facilities",
+          "contact": "facilities@eng.ucsd.edu",
+          "notes": "4202 含 ServiceNow Terrace",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "MANDE": {
+      "spaces": [
+        {
+          "id": "mandeville-auditorium",
+          "name": "Mandeville Auditorium",
+          "category": "独立预约场地",
+          "description": "由建筑师 A. Quincy Jones 设计(1975)的中型表演场馆。752座(部分来源标764座)，舞台 42'×30'，专业灯光栅格+音响系统。2018年全面翻修。UCSD 最成熟的表演级 Auditorium。适合大型演出/典礼/毕业活动/会议。宽侧门+大型卸货台+货运电梯，设备进出方便。前排可改为桌椅配置。",
+          "system": "independent",
+          "location": "Mandeville Center",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(近 I-5 高速),,,,,,,,,,,752,Auditorium / 表演厅,需联系确认 | (费率=场租+劳务+设备),需联系确认,需联系确认 | (7/1/2026起涨价),False,University Events Office,专业灯光栅格+音响 | +舞台设备 | Production Manager 支持,Rental Request Form | eforms.ucsd.edu/view.php?id=394210,Jessica C. Flores | j3flores@ucsd.edu | mus-director@ucsd.edu,需先查 Master Calendar | 需规划会议+成本估算 | 押金不可退,春晚,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "SURV": {
+      "spaces": [
+        {
+          "id": "sv-126-11f-survivance-premier",
+          "name": "SV-126 (11F Survivance · Premier)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "Survivance 大楼11楼旗舰会议厅，450人容量。270°太平洋海景全景落地窗，配有户外家具露台、预备功能区、附属厨房。双投影+集成音响+蓝牙。HCS 最大最高端场地。",
+          "system": "hcs",
+          "location": "Survivance Bldg, 11F",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "sv-120-11f-survivance-premier",
+          "name": "SV-120 (11F Survivance · Premier)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "Survivance 11楼中型会议室，40人。海景，多种布局，Zoom/视频会议就绪。",
+          "system": "hcs",
+          "location": "Survivance Bldg, 11F",
+          "area_sqft": null,
+          "capacity": {
+            "max": 40
+          },
+          "max_capacity": 40,
+          "type": "Premier 会议室",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "投影+音响+平板TV",
+            "Zoom/视频会议"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "海景；Zoom ready",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "sv-122-sv-105-11f-survivance-premier",
+          "name": "SV-122 & SV-105 (11F Survivance · Premier)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "SV-122: 小型会议室15人，海景。SV-105: Boardroom 15人，行政级座椅。均配平板TV和Zoom功能。",
+          "system": "hcs",
+          "location": "Survivance Bldg, 11F",
+          "area_sqft": null,
+          "capacity": {
+            "max": 15
+          },
+          "max_capacity": 15,
+          "type": "Premier 小型/Boardroom",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "平板TV+音响",
+            "Zoom/视频会议"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "SV-105 行政级配置",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(Eighth College/Theater District LLN),,,,,,,,,,450,450,Premier 大厅,需邮件询价,需邮件询价,需邮件询价,False,HCS,双投影+Screen | 集成音响+蓝牙 | 附属厨房,Email,meetings@ucsd.edu | (858) 534-2230,海景旗舰；含预备区+露台,高端宴会,True\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "JEANN": {
+      "spaces": [
+        {
+          "id": "jeannie-auditorium-choice",
+          "name": "Jeannie Auditorium (Choice)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "UCSD 最新社区 North Torrey Pines LLN 内的大型 Auditorium。600固定座椅(含4轮椅位)，独特建筑设计，4块玻璃白板，讲台连接AV，HD投影+蓝光+HDMI+无线投屏，Zoom/Podcast 就绪。3个 Foyer/Lobby 区域，舞台区底部滑门连接东 Foyer。辅助听力设备可用。",
+          "system": "hcs",
+          "location": "North Torrey Pines LLN",
+          "area_sqft": null,
+          "capacity": {
+            "max": 600
+          },
+          "max_capacity": 600,
+          "type": "Choice Auditorium",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价\n含2h布置+1h清场"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "HD投影+蓝光",
+            "HDMI+无线投屏",
+            "无线扩音+讲台AV",
+            "Zoom/Podcast ready",
+            "辅助听力设备"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "非课时段: M-F 3:30pm-10pm\nSat/Sun 全天\n3个 Lobby 区域",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "HCS15": {
+      "spaces": [
+        {
+          "id": "15th-floor-choice",
+          "name": "15th Floor (Choice)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "高层全景会议空间，105人。坐拥海岸线+Torrey Pines 高尔夫球场景观。适合中型会议/workshop。",
+          "system": "hcs",
+          "location": "待确认（高层建筑）",
+          "area_sqft": null,
+          "capacity": {
+            "max": 105
+          },
+          "max_capacity": 105,
+          "type": "Choice 会议空间",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "AV设备+教室配置"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "海景+高尔夫球场景",
+          "tags": [
+            "高端宴会"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "ROOFTOP": {
+      "spaces": [
+        {
+          "id": "rooftops-ka-1406-ty-1305-choice",
+          "name": "Rooftops KA-1406 / TY-1305 (Choice)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "North Torrey Pines LLN 屋顶空间，60人。融合学术/文化/居住氛围。",
+          "system": "hcs",
+          "location": "North Torrey Pines LLN",
+          "area_sqft": null,
+          "capacity": {
+            "max": 60
+          },
+          "max_capacity": 60,
+          "type": "Choice 屋顶空间",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "AV设备+休息区"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "NUEVO": {
+      "spaces": [
+        {
+          "id": "porton-12f-nuevo-east-quality",
+          "name": "Porton (12F Nuevo East · Quality)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "Nuevo East 12楼会议室40人，含宽敞户外露台，La Jolla/UTC 景观。",
+          "system": "hcs",
+          "location": "Nuevo East, 12F",
+          "area_sqft": null,
+          "capacity": {
+            "max": 40
+          },
+          "max_capacity": 40,
+          "type": "Quality 会议室+露台",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "AV设备+U-shape"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "La Jolla/UTC 景观露台",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "MOS": {
+      "spaces": [
+        {
+          "id": "mosaic-rm-203-quality",
+          "name": "Mosaic (Rm 203) (Quality)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "屋顶级会议室30人，海景。HCS 称之为 Premier rooftop meeting room。",
+          "system": "hcs",
+          "location": "待确认",
+          "area_sqft": null,
+          "capacity": {
+            "max": 30
+          },
+          "max_capacity": 30,
+          "type": "Quality 屋顶会议室",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "AV设备"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "海景屋顶",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "EXCHANGE": {
+      "spaces": [
+        {
+          "id": "the-exchange-quality",
+          "name": "The Exchange (Quality)",
+          "category": "Hospitality & Conference Services (HCS)",
+          "description": "近校园中心的60人活动空间，宽敞户外露台。",
+          "system": "hcs",
+          "location": "近校园中心",
+          "area_sqft": null,
+          "capacity": {
+            "max": 60
+          },
+          "max_capacity": 60,
+          "type": "Quality 活动空间",
+          "rates": {
+            "rso": "需邮件询价",
+            "department": "需邮件询价",
+            "external": "需邮件询价"
+          },
+          "rso_free": false,
+          "managed_by": "HCS",
+          "equipment": [
+            "AV设备+U-shape"
+          ],
+          "booking_method": "Email",
+          "contact": "meetings@ucsd.edu",
+          "notes": "户外露台",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "LION": {
+      "spaces": [
+        {
+          "id": "liontree-arena",
+          "name": "LionTree Arena",
+          "category": "Recreation Facilities",
+          "description": "44,000sqft 弹簧地板多功能体育馆，最多容纳5,000人。伸缩式看台、场地座位、无障碍环形通道。可分隔帘幕实现多运动同时使用。10个可收缩玻璃篮球背板。专业灯光(100 foot-candles + TV级)、对讲/寻呼/数据/电话系统。更衣室、售票处(200sqft)、小卖部、露台。UCSD 最大室内场馆。",
+          "system": "recreation",
+          "location": "RIMAC 区域",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "9860 Hopkins Dr,44000,,,,,,,,,5000,5000,Arena / 体育馆,需联系确认,Concert: $6": {
+      "spaces": [
+        {
+          "id": "300/$12",
+          "name": "600 | 4-Wall: $3",
+          "category": "000/$6",
+          "description": "000\n(Half/Full Day),Concert: $6",
+          "system": "300/$12",
+          "location": "600\n(Off-campus 全价),False,Recreation,100fc灯光+TV级\n对讲/寻呼系统\n可租舞台/坡道,EMS Cloud,sportsfac@ucsd.edu\n(858) 534-8498,含看台开合费用\n劳务: Event Asst $20-27/h,大型户外活动\n体育,True\r",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "RIMAC": {
+      "spaces": [
+        {
+          "id": "rimac-annex-auxiliary-gym",
+          "name": "RIMAC Annex (Auxiliary Gym)",
+          "category": "Recreation Facilities",
+          "description": "RIMAC 附属体育馆，适合中型体育活动、训练营。",
+          "system": "recreation",
+          "location": "RIMAC",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "多功能运动空间",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "$200/h\nHalf $1,200 / Full $2,400\n(UCSD: $100/h)",
+            "external": "Off-campus:\n$200/h"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "基本灯光"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "UCSD Dept 半价",
+          "tags": [
+            "体育"
+          ],
+          "cssa_recommended": false
+        },
+        {
+          "id": "rimac-conference-room",
+          "name": "RIMAC Conference Room",
+          "category": "Recreation Facilities",
+          "description": "RIMAC 内会议室，适合小型会议/新闻发布会。",
+          "system": "recreation",
+          "location": "RIMAC, 4F",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": 30,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "Min $150 / Half $300\nFull $450\n(UCSD: $75/$150/$225)",
+            "external": "Off-campus:\n$150/$300/$450"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "基本AV"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "triton-conference-room",
+          "name": "Triton Conference Room",
+          "category": "Recreation Facilities",
+          "description": "较大会议室（原 Green Room）。",
+          "system": "recreation",
+          "location": "RIMAC",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": 50,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "Min $300 / Half $600\nFull $900\n(UCSD: $150/$300/$450)",
+            "external": "Off-campus:\n$300/$600/$900"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "AV设备"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "dugout-conference-room",
+          "name": "Dugout Conference Room",
+          "category": "Recreation Facilities",
+          "description": "RIMAC Annex 内会议室。",
+          "system": "recreation",
+          "location": "RIMAC Annex",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": 50,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "Min $300 / Half $600\nFull $900\n(UCSD: $150/$300/$450)",
+            "external": "Off-campus:\n$300/$600/$900"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "AV设备"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "RECGM": {
+      "spaces": [
+        {
+          "id": "main-gym",
+          "name": "Main Gym",
+          "category": "Recreation Facilities",
+          "description": "主体育馆，约 115'×100' 硬木地板。适合篮球/排球/室内运动活动。",
+          "system": "recreation",
+          "location": "Main Gym Building",
+          "area_sqft": 11500,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Gymnasium",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "$200/h\nHalf $1,200 / Full $2,400\n(UCSD: $100/h)",
+            "external": "Off-campus:\n$200/h"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "基本灯光+音响"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "另有 Rec Gym 同价",
+          "tags": [
+            "体育"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "CANYN": {
+      "spaces": [
+        {
+          "id": "canyonview-pools",
+          "name": "Canyonview Pools",
+          "category": "Recreation Facilities",
+          "description": "室外游泳池综合设施。可按2 Lanes/半池/全池/跳水池租用。含灯光选项。",
+          "system": "recreation",
+          "location": "Canyonview 区域",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Swimming Pool",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "Full Pool: $300/h\nHalf: $150/h\n2 Lanes: $60/h\n(UCSD 半价)",
+            "external": "Off-campus 全价"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "计时触垫($500)",
+            "水球钟($350)"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "灯光 $25/h",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "FIELDS": {
+      "spaces": [
+        {
+          "id": "multipurpose-fields-ecra-muir-marshall-warren-ncra",
+          "name": "Multipurpose Fields (ECRA/Muir/Marshall/ Warren/NCRA)",
+          "category": "Recreation Facilities",
+          "description": "校园各处户外运动场，适合大型户外活动/运动会/团建。可划线(足球/橄榄球/曲棍球)。含灯光选项。",
+          "system": "recreation",
+          "location": "校园各处",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "户外运动草坪",
+          "rates": {
+            "rso": "需联系确认",
+            "department": "1 Field: $100/h\n(UCSD: $50/h)\nFull NCRA(4 fields):\n$400/h → $4,800 Full Day",
+            "external": "Off-campus 全价"
+          },
+          "rso_free": false,
+          "managed_by": "Recreation",
+          "equipment": [
+            "可划线+球门",
+            "灯光 $75/h"
+          ],
+          "booking_method": "EMS Cloud",
+          "contact": "sportsfac@ucsd.edu",
+          "notes": "Muir Field 人工草皮",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "MWEIS": {
+      "spaces": [
+        {
+          "id": "mandell-weiss-theatre",
+          "name": "Mandell Weiss Theatre",
+          "category": "Theatre & Dance Department",
+          "description": "UCSD 与 La Jolla Playhouse 共享的主剧场。传统镜框式舞台(Proscenium)，约500座。专业演出级灯光音响。排期极其紧张，需与 La Jolla Playhouse 协调。",
+          "system": "theatre-dance",
+          "location": "Mandell Weiss Center",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "mandell-weiss-forum",
+          "name": "Mandell Weiss Forum",
+          "category": "Theatre & Dance Department",
+          "description": "Mandell Weiss Center 内的 Forum 剧场，灵活配置空间。适合实验性演出和小型制作。",
+          "system": "theatre-dance",
+          "location": "Mandell Weiss Center",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Forum Theatre",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Theatre & Dance",
+          "equipment": [
+            "舞台灯光+音响"
+          ],
+          "booking_method": "部门办公室",
+          "contact": "theatre.ucsd.edu",
+          "notes": "",
+          "tags": [
+            "职业宣讲会"
+          ],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "(La Jolla Playhouse 区域": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "Revelle 附近),,,,,,,,,,500,500,Proscenium Theatre,需与部门协商,需与部门协商,需与部门协商,False,Theatre & Dance | + La Jolla Playhouse,专业演出灯光+音响,部门办公室 | GH 202,theatre.ucsd.edu,与 La Jolla Playhouse 共享；排期极紧,,False\r": {
+      "spaces": [
+        {
+          "id": "",
+          "name": "",
+          "category": "",
+          "description": "",
+          "system": "",
+          "location": "",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "",
+          "rates": {
+            "rso": "",
+            "department": "",
+            "external": ""
+          },
+          "rso_free": false,
+          "managed_by": "",
+          "equipment": [],
+          "booking_method": "",
+          "contact": "",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "POTKR": {
+      "spaces": [
+        {
+          "id": "sheila-hughes-potiker-theatre",
+          "name": "Sheila & Hughes Potiker Theatre",
+          "category": "Theatre & Dance Department",
+          "description": "417座黑盒剧场，空间高度灵活可重新配置。与 La Jolla Playhouse 共享。配有工作间和办公室。适合实验戏剧/沉浸式演出/非传统配置演出。",
+          "system": "theatre-dance",
+          "location": "La Jolla Playhouse 区域",
+          "area_sqft": null,
+          "capacity": {
+            "max": 417
+          },
+          "max_capacity": 417,
+          "type": "Black Box Theatre",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Theatre & Dance\n+ La Jolla Playhouse",
+          "equipment": [
+            "可配置灯光+音响",
+            "附属工作间"
+          ],
+          "booking_method": "部门办公室",
+          "contact": "theatre.ucsd.edu",
+          "notes": "灵活黑盒；417座",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "GH": {
+      "spaces": [
+        {
+          "id": "arthur-wagner-theatre",
+          "name": "Arthur Wagner Theatre",
+          "category": "Theatre & Dance Department",
+          "description": "Galbraith Hall 内的实验剧场，Department of Theatre & Dance 的教学/实验演出主场地。",
+          "system": "theatre-dance",
+          "location": "Galbraith Hall",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "实验剧场",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Theatre & Dance",
+          "equipment": [
+            "基本灯光+音响"
+          ],
+          "booking_method": "部门办公室",
+          "contact": "theatre.ucsd.edu",
+          "notes": "在 Galbraith Hall 内",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "DANCE": {
+      "spaces": [
+        {
+          "id": "dance-studio-3",
+          "name": "Dance Studio 3",
+          "category": "Theatre & Dance Department",
+          "description": "Wagner Dance Building 内的舞蹈工作室，弹簧地板、自然采光、淋浴/更衣室。适合舞蹈排练/小型舞蹈演出。",
+          "system": "theatre-dance",
+          "location": "Wagner Dance Building",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Dance Studio",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Theatre & Dance",
+          "equipment": [
+            "弹簧地板",
+            "自然采光",
+            "淋浴/更衣室"
+          ],
+          "booking_method": "部门办公室",
+          "contact": "theatre.ucsd.edu",
+          "notes": "3间 studio，均有弹簧地板",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "SHANK": {
+      "spaces": [
+        {
+          "id": "theodore-adele-shank-theatre",
+          "name": "Theodore & Adele Shank Theatre",
+          "category": "Theatre & Dance Department",
+          "description": "Theatre & Dance 部门剧场之一。",
+          "system": "theatre-dance",
+          "location": "待确认",
+          "area_sqft": null,
+          "capacity": {},
+          "max_capacity": null,
+          "type": "Theatre",
+          "rates": {
+            "rso": "需协商",
+            "department": "需协商",
+            "external": "需协商"
+          },
+          "rso_free": false,
+          "managed_by": "Theatre & Dance",
+          "equipment": [
+            "待确认"
+          ],
+          "booking_method": "部门办公室",
+          "contact": "theatre.ucsd.edu",
+          "notes": "",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    },
+    "SSC": {
+      "spaces": [
+        {
+          "id": "multipurpose-room",
+          "name": "Multipurpose Room",
+          "category": "University Centers — Student Center",
+          "description": "Student Center 多功能厅(3,828sqft)，大型灵活空间。适合博览会/大型会议/招聘会。",
+          "system": "university-centers",
+          "location": "Student Services Center",
+          "area_sqft": 3828,
+          "capacity": {
+            "theater": 242,
+            "banquet": 162,
+            "classroom": 60,
+            "reception": 259
+          },
+          "max_capacity": 259,
+          "type": "多功能厅",
+          "rates": {
+            "rso": "场租免费+Setup $150 +Change in Setup $75",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "投影+音响 ｜可申请 Tech"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "SSC 最大室内空间",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-260",
+          "name": "SSC Conference Room 260",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 会议室，固定家具布局，Hollow Square 配置可容纳16人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 260",
+          "area_sqft": 450,
+          "capacity": {
+            "hollow_square": 16
+          },
+          "max_capacity": 16,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-300",
+          "name": "SSC Conference Room 300",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 会议室，固定家具布局，Hollow Square 配置可容纳18人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 300",
+          "area_sqft": 600,
+          "capacity": {
+            "hollow_square": 18
+          },
+          "max_capacity": 18,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-350",
+          "name": "SSC Conference Room 350",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 小型会议室，固定家具布局，Hollow Square 配置可容纳12人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 350",
+          "area_sqft": 400,
+          "capacity": {
+            "hollow_square": 12
+          },
+          "max_capacity": 12,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-400",
+          "name": "SSC Conference Room 400",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 会议室，固定家具布局，Hollow Square 配置可容纳18人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 400",
+          "area_sqft": 600,
+          "capacity": {
+            "hollow_square": 18
+          },
+          "max_capacity": 18,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-450",
+          "name": "SSC Conference Room 450",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 小型会议室，固定家具布局，Hollow Square 配置可容纳12人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 450",
+          "area_sqft": 375,
+          "capacity": {
+            "hollow_square": 12
+          },
+          "max_capacity": 12,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-554",
+          "name": "SSC Conference Room 554",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 会议室，固定家具布局，Hollow Square 配置可容纳16人。SSC最大会议室。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 554",
+          "area_sqft": 650,
+          "capacity": {
+            "hollow_square": 16
+          },
+          "max_capacity": 16,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee；SSC最大会议室",
+          "tags": [],
+          "cssa_recommended": false
+        },
+        {
+          "id": "ssc-conference-room-554a",
+          "name": "SSC Conference Room 554A",
+          "category": "University Centers — Student Services Center",
+          "description": "Student Services Center 最小会议室，固定家具布局，Hollow Square 配置可容纳11人。",
+          "system": "university-centers",
+          "location": "Student Services Center, Room 554A",
+          "area_sqft": 400,
+          "capacity": {
+            "hollow_square": 11
+          },
+          "max_capacity": 11,
+          "type": "Conference Room",
+          "rates": {
+            "rso": "免费",
+            "department": "需联系确认",
+            "external": "需联系确认"
+          },
+          "rso_free": true,
+          "managed_by": "University Centers",
+          "equipment": [
+            "无内置设备",
+            "可申请便携投影仪"
+          ],
+          "booking_method": "T-RES",
+          "contact": "reservations@ucsd.edu",
+          "notes": "固定家具；移动家具需付$50 reset fee",
+          "tags": [],
+          "cssa_recommended": false
+        }
+      ]
+    }
+  },
+  "booking_systems": [
+    {
+      "id": "university-centers",
+      "name": "University Centers Reservation Office",
+      "short_name": "University Centers",
+      "color": "#2563EB",
+      "scope": "Price Center 全部场地（Ballroom East/West、Theater、Forum、会议室×12+、Dance Studio）\nStudent Center（Huerta/Vera Cruz/Thich Nhat Hanh、Stage Room & Patio、Multipurpose Room、Conference Rooms ×7）\nEpstein Family Amphitheatre\nThe LOFT\n户外（Library Walk、Price Center Plaza、Matthews Quad、Rupertus Lane、Town Square）",
+      "method": "T-RES 在线系统\nreservations.ucsd.edu\n（需 UCSD SSO 登录）",
+      "contact": "reservations@ucsd.edu\n(858) 534-2230\nPrice Center Suite 3.310",
+      "timeline": "1. 创建 T-RES 账号（激活约24h）\n2. 提交预约请求（2-3个工作日审核）\n3. TAP 流程（活动前21天提交）\n4. 规划会议（活动前6-3周）\n5. 技术需求提交（活动前21天）\n6. 最终审查（活动前21-14天）",
+      "applicable_to": "RSO: 免费场租，最多提前6个月\n校内部门: 提前120天\n外部组织: 提前3-6周",
+      "rate_overview": "RSO: 免费场租（仅付技术/设备费）\n校内部门: 按场地+时段收费（见 Sheet 2 详细费率）\n外部: 全价（通常为部门价2倍）\n附加: 建筑加时费$125/h, 节假日费$250",
+      "notes": "CSSA 作为 RSO 享受免费场租；大型活动建议提前 3+ 个月；15%押金（外部）"
+    },
+    {
+      "id": "classroom",
+      "name": "Classroom Reservation Service (Registrar)",
+      "short_name": "Classroom Reservation",
+      "color": "#6B7280",
+      "scope": "全校教室（Lecture Hall, Seminar Room 等）",
+      "method": "在线表单\nsa-web.ucsd.edu/forms/reg/classroomspace/",
+      "contact": "Registrar-Scheduling@ucsd.edu",
+      "timeline": "1. 填写在线表单\n2. 等待确认（活动前1周左右）\n注意：最多提前3周申请",
+      "applicable_to": "校内组织和部门\n仅限会议用途",
+      "rate_overview": "免费",
+      "notes": "限制多：不能有食物、不能有外部演讲者、不能有资金交易\n黑名单期：开学第一周、Finals、假期、Break"
+    },
+    {
+      "id": "hcs",
+      "name": "Hospitality & Conference Services (HCS)",
+      "short_name": "Hospitality & Conference",
+      "color": "#7C3AED",
+      "scope": "Premier: Survivance 11F（SV-126/120/122/105）\nChoice: 15th Floor、Jeannie Auditorium、Rooftops KA-1406/TY-1305\nQuality: Porton、Mosaic、The Exchange",
+      "method": "Email 联系\nmeetings@ucsd.edu",
+      "contact": "meetings@ucsd.edu\n(858) 534-2230\nconference.ucsd.edu",
+      "timeline": "1. 发邮件至 meetings@ucsd.edu 咨询\n2. HCS 回复可用性和报价\n3. 签署场地协议\n4. 活动执行\n含2h免费布置+1h清场",
+      "applicable_to": "校内部门 / 外部组织\n面向会议/宴会/大型活动",
+      "rate_overview": "按 Premier > Choice > Quality 分级收费\n具体报价需邮件询价\nJeannie 非课时段可用：\nM-F 3:30pm-10pm\nSat/Sun 全天",
+      "notes": "全服务型；适合高端活动/大型会议\nSV-126 可容纳450人（海景）\nJeannie 600座（校内最大固定座位 Auditorium 之一）"
+    },
+    {
+      "id": "recreation",
+      "name": "Recreation Facilities",
+      "short_name": "Recreation",
+      "color": "#059669",
+      "scope": "LionTree Arena / RIMAC Annex / Main Gym / Rec Gym\nCanyonview Pools / Natatorium\n球场 / 多功能草坪 / 田径场\n会议室（RIMAC Conf / Triton Conf / Dugout Conf）",
+      "method": "EMS Cloud 系统\nucsdevents.emscloudservice.com",
+      "contact": "sportsfac@ucsd.edu\n(858) 534-8498",
+      "timeline": "1. 通过 EMS Cloud 提交请求\n（校内/校外表单不同）\n2. Recreation 审核\n3. 确认预约\n4. 活动执行",
+      "applicable_to": "校内组织和部门\n外部组织（费率约为校内2倍）",
+      "rate_overview": "按场地×时段收费（见 Sheet 2）\nRIMAC Arena: $3,150-$12,600\nMain Gym: $100-$2,400\n会议室: $75-$900\n劳务: $20-$30/h（校内）",
+      "notes": "LionTree Arena 可容纳5,000人\n44,000 sqft 弹簧地板\n专业灯光/音响"
+    },
+    {
+      "id": "theatre-dance",
+      "name": "Theatre & Dance Dept",
+      "short_name": "Theatre & Dance",
+      "color": "#EA580C",
+      "scope": "Mandell Weiss Theatre / Forum\nPotiker Theatre\nArthur Wagner Theatre\nTheodore & Adele Shank Theatre\nDance Studio 3",
+      "method": "联系部门办公室",
+      "contact": "Theatre Dept: theatre.ucsd.edu\nGalbraith Hall GH 202",
+      "timeline": "1. 联系 Theatre 部门办公室\n2. 确认可用性（注意学期演出排期）\n3. 签署使用协议\n4. 技术排练 + 活动执行",
+      "applicable_to": "校内组织（需部门审批）\n与 La Jolla Playhouse 共享部分场地",
+      "rate_overview": "需与部门协商\n可能涉及技术人员附加费",
+      "notes": "Potiker 417座（可配置黑盒）\nMandell Weiss 与 La Jolla Playhouse 共享，排期紧张\nWagner Theatre 在 Galbraith Hall"
+    },
+    {
+      "id": "independent",
+      "name": "独立管理场地",
+      "short_name": "独立管理",
+      "color": "#8B0000",
+      "scope": "Conrad Prebys Experimental Theater\nDesign & Innovation Building (DIB)\nAtkinson Hall (Qualcomm Institute)\nConrad Prebys Music Center (Concert Hall / Recital Hall)\nCSE Building (EBU3B)\nJacobs Hall (Qualcomm Conf Center)\nASML Conference Center (SME)\nRobert Conn Exec Conf Center (FAH)\nMandeville Auditorium",
+      "method": "各场地独立预约\n详见各场地联系方式",
+      "contact": "联系各场地管理部门",
+      "timeline": "各场地流程不同\n请联系具体管理方咨询",
+      "applicable_to": "因场地而异\n部分面向校内组织，部分接受外部预约",
+      "rate_overview": "因场地而异\nMandeville Auditorium: RSO免费\n其他场地需联系管理方",
+      "notes": "这些场地由不同部门/实验室独立管理\n预约流程和费率各不相同"
+    }
+  ],
+  "cssa_recommendations": [
+    {
+      "activity_type": "春晚 / 大型晚会",
+      "activity_type_en": "Spring Gala / Large Events",
+      "capacity_range": "500+",
+      "venue_ids": [
+        "ballroom-east",
+        "ballroom-west-a",
+        "ballroom-west-b",
+        "ballroom-west-ab",
+        "mandeville-auditorium"
+      ],
+      "advance_booking": "3-6 个月",
+      "notes": "春晚首选 AB；建议 Fall Quarter 就开始预约"
+    },
+    {
+      "activity_type": "新生见面会 / 中型活动",
+      "activity_type_en": "Orientation / Medium Events",
+      "capacity_range": "200-500",
+      "venue_ids": [
+        "ballroom-east",
+        "ballroom-west-a",
+        "ballroom-west-b",
+        "ballroom-west-ab",
+        "the-great-hall-international-house"
+      ],
+      "advance_booking": "2-3 个月",
+      "notes": "Great Hall 海景加分但需 UCSD Catering"
+    },
+    {
+      "activity_type": "职业宣讲会",
+      "activity_type_en": "Career Talks",
+      "capacity_range": "50-200",
+      "venue_ids": [
+        "the-forum",
+        "atkinson-hall-qualcomm-institute",
+        "jacobs-hall-qualcomm-conf-center",
+        "mandell-weiss-forum"
+      ],
+      "advance_booking": "1-2 个月",
+      "notes": "Forum 设备好；Atkinson 适合 tech talk"
+    },
+    {
+      "activity_type": "部门例会 / 小型会议",
+      "activity_type_en": "Team Meetings",
+      "capacity_range": "10-40",
+      "venue_ids": [
+        "bear-room",
+        "red-shoe-room",
+        "design-innovation-building-dib"
+      ],
+      "advance_booking": "1-2 周",
+      "notes": "PC 会议室 RSO 免费；DIB 需单独预约"
+    },
+    {
+      "activity_type": "户外集市 / Tabling",
+      "activity_type_en": "Outdoor Fair / Tabling",
+      "capacity_range": "N/A",
+      "venue_ids": [
+        "library-walk-north",
+        "library-walk-central",
+        "library-walk-south",
+        "price-center-plaza"
+      ],
+      "advance_booking": "2-4 周",
+      "notes": "Library Walk 人流量最大"
+    },
+    {
+      "activity_type": "大型户外活动",
+      "activity_type_en": "Large Outdoor Events",
+      "capacity_range": "1000+",
+      "venue_ids": [
+        "epstein-family-amphitheatre",
+        "matthews-quad",
+        "liontree-arena"
+      ],
+      "advance_booking": "3-6 个月",
+      "notes": "Epstein 有专业音响；Matthews 适合集市"
+    },
+    {
+      "activity_type": "音乐会 / 演奏会",
+      "activity_type_en": "Concerts / Recitals",
+      "capacity_range": "100-400",
+      "venue_ids": [
+        "epstein-family-amphitheatre",
+        "the-loft",
+        "conrad-prebys-concert-hall",
+        "conrad-prebys-experimental-theater",
+        "conrad-prebys-recital-hall"
+      ],
+      "advance_booking": "2-3 个月",
+      "notes": "Conrad Prebys 有世界级音响"
+    },
+    {
+      "activity_type": "体育 / 电竞活动",
+      "activity_type_en": "Sports / Esports",
+      "capacity_range": "50-5000",
+      "venue_ids": [
+        "liontree-arena",
+        "rimac-annex-auxiliary-gym",
+        "main-gym"
+      ],
+      "advance_booking": "1-3 个月",
+      "notes": "LionTree Arena 容量最大(5000)"
+    },
+    {
+      "activity_type": "学术讲座 / Workshop",
+      "activity_type_en": "Academic Lectures",
+      "capacity_range": "20-200",
+      "venue_ids": [
+        "design-innovation-building-dib",
+        "cse-building-ebu3b"
+      ],
+      "advance_booking": "1-3 周",
+      "notes": "Classroom 免费但限制多"
+    },
+    {
+      "activity_type": "高端宴会 / VIP 活动",
+      "activity_type_en": "VIP / Premium Events",
+      "capacity_range": "50-450",
+      "venue_ids": [
+        "the-great-hall-international-house",
+        "sv-126-11f-survivance-premier",
+        "15th-floor-choice"
+      ],
+      "advance_booking": "2-3 个月",
+      "notes": "均有海景；需 UCSD Catering 或 HCS"
+    }
+  ]
+}

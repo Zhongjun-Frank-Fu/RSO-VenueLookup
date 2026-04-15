@@ -16,6 +16,12 @@ type BuildingButtonProps = {
   selected: boolean;
   scrollTarget: { init: boolean } | null;
   visible: boolean;
+  venueMode?: boolean;
+  venueCount?: number;
+  venueSystemId?: string;
+  classroomMode?: boolean;
+  classroomCount?: number;
+  highlight?: boolean;
 };
 
 export function BuildingButton({
@@ -24,6 +30,12 @@ export function BuildingButton({
   selected,
   scrollTarget,
   visible,
+  venueMode,
+  venueCount,
+  venueSystemId,
+  classroomMode,
+  classroomCount,
+  highlight,
 }: BuildingButtonProps) {
   const moment = useMoment();
 
@@ -52,11 +64,22 @@ export function BuildingButton({
 
   const { x, y } = latLongToPixel(building.location);
 
+  const systemClass = venueMode && venueSystemId
+    ? `system-${venueSystemId}`
+    : "";
+
+  // Click same building again → close panel (toggle behavior)
+  const targetView = selected
+    ? { type: "default" as const }
+    : { type: "building" as const, building: building.code };
+
   return (
     <Link
-      view={{ type: "building", building: building.code }}
-      className={`building-btn college-${college} ${
-        selected ? "selected" : ""
+      view={targetView}
+      className={`building-btn ${
+        venueMode ? `venue-mode ${systemClass}` : classroomMode ? "classroom-mode" : `college-${college}`
+      } ${selected ? "selected" : ""} ${
+        highlight ? "highlight-pulse" : ""
       } ${visible ? "" : "building-btn-hidden"}`}
       style={{
         left: `${x - southwest.x + PADDING.horizontal}px`,
@@ -65,22 +88,32 @@ export function BuildingButton({
       elemRef={ref}
     >
       {building.code}
-      <span className="room-count">
-        {moment.type !== "term" ? (
-          <>
-            <span className="in-use">
-              {
-                rooms.filter((meetings) =>
-                  meetings.some((meeting) => isMeetingOngoing(meeting, moment))
-                ).length
-              }
-            </span>
-            /{rooms.length}
-          </>
-        ) : (
-          <span className="in-use">{rooms.length}</span>
-        )}
-      </span>
+      {venueMode ? (
+        <span className="venue-space-count">
+          <span className="in-use">{venueCount ?? 0}</span>
+        </span>
+      ) : classroomMode ? (
+        <span className="venue-space-count">
+          <span className="in-use">{classroomCount ?? 0}</span>
+        </span>
+      ) : (
+        <span className="room-count">
+          {moment.type !== "term" ? (
+            <>
+              <span className="in-use">
+                {
+                  rooms.filter((meetings) =>
+                    meetings.some((meeting) => isMeetingOngoing(meeting, moment))
+                  ).length
+                }
+              </span>
+              /{rooms.length}
+            </>
+          ) : (
+            <span className="in-use">{rooms.length}</span>
+          )}
+        </span>
+      )}
     </Link>
   );
 }

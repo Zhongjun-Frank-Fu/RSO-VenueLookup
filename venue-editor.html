@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UCSD Venue Data Editor</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #f5f5f5; color: #333; }
+
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: #1a1a2e; color: #fff; padding: 8px 20px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: nowrap;
+  height: 44px;
+}
+.topbar h1 { font-size: 16px; font-weight: 600; white-space: nowrap; margin-right: 4px; }
+.topbar .stats { font-size: 12px; opacity: 0.7; white-space: nowrap; }
+.topbar .save-indicator { font-size: 10px; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+.topbar .save-indicator.saved { background: #065f46; color: #6ee7b7; }
+.topbar .save-indicator.unsaved { background: #92400e; color: #fcd34d; }
+
+/* Divider between left info and right controls */
+.topbar .spacer { flex: 1; min-width: 8px; }
+
+/* Filter controls inline in topbar */
+.topbar input, .topbar select {
+  padding: 3px 8px; border: 1px solid #4b5563; border-radius: 5px;
+  font-size: 12px; background: #2d2d44; color: #e2e8f0;
+}
+.topbar input::placeholder { color: #9ca3af; }
+.topbar input[type="text"] { width: 170px; }
+.topbar select { max-width: 120px; }
+.topbar label { font-size: 11px; display: flex; align-items: center; gap: 3px; white-space: nowrap; color: #cbd5e1; }
+.topbar .filter-count { font-size: 11px; color: #9ca3af; white-space: nowrap; }
+
+.topbar button {
+  padding: 4px 12px; border-radius: 5px; border: none; cursor: pointer;
+  font-size: 12px; font-weight: 500; white-space: nowrap;
+}
+.btn-primary { background: #3b82f6; color: #fff; }
+.btn-primary:hover { background: #2563eb; }
+.btn-secondary { background: #4b5563; color: #fff; }
+.btn-secondary:hover { background: #374151; }
+.btn-danger { background: #ef4444; color: #fff; }
+.btn-danger:hover { background: #dc2626; }
+.btn-success { background: #10b981; color: #fff; }
+.btn-success:hover { background: #059669; }
+
+/* Table wrapper: fills remaining viewport */
+.table-wrap {
+  position: fixed; top: 44px; left: 0; right: 0; bottom: 0;
+  overflow: auto;
+}
+
+table {
+  border-collapse: separate; border-spacing: 0;
+  background: #fff; font-size: 12px;
+}
+
+/* --- Sticky header row --- */
+thead th {
+  position: sticky; top: 0; z-index: 20;
+  /* top:0 relative to .table-wrap scroll container */
+  background: #f1f5f9; border-bottom: 2px solid #cbd5e1;
+  padding: 8px 6px; text-align: left; font-weight: 600; font-size: 11px;
+  color: #475569; text-transform: uppercase; letter-spacing: 0.5px;
+  white-space: nowrap; cursor: pointer; user-select: none;
+}
+thead th:hover { background: #e2e8f0; }
+
+/* --- Frozen columns: #, Bldg, ID = col 0,1,2 --- */
+.freeze {
+  position: sticky; z-index: 15;
+  background: inherit;
+}
+thead .freeze { z-index: 30; } /* header + frozen = highest */
+
+.freeze-0 { left: 0; min-width: 36px; }
+.freeze-1 { left: 36px; min-width: 72px; }
+.freeze-2 { left: 108px; min-width: 150px; border-right: 2px solid #cbd5e1; }
+
+tbody tr { border-bottom: 1px solid #f1f5f9; }
+tbody tr:hover td { background: #eff6ff; }
+tbody tr.modified td { background: #fefce8; }
+/* Frozen cols keep their color on hover/modified */
+tbody tr:hover .freeze { background: #e0ecff; }
+tbody tr.modified .freeze { background: #fef3c7; }
+tbody tr .freeze { background: #fff; }
+
+td {
+  padding: 3px 5px; vertical-align: top; max-width: 220px;
+  border-bottom: 1px solid #f1f5f9;
+}
+td input, td textarea, td select {
+  width: 100%; border: 1px solid transparent; background: transparent;
+  padding: 2px 4px; font-size: 12px; font-family: inherit; border-radius: 3px;
+  resize: vertical;
+}
+td input:focus, td textarea:focus, td select:focus {
+  border-color: #3b82f6; background: #fff; outline: none;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+td textarea { min-height: 26px; }
+
+.col-desc { min-width: 240px; }
+.col-loc { min-width: 140px; }
+.col-type { min-width: 100px; }
+.col-num { min-width: 55px; }
+.col-rate { min-width: 120px; }
+.col-equip { min-width: 140px; }
+.col-tags { min-width: 100px; }
+.col-bool { min-width: 40px; text-align: center; }
+
+.row-num {
+  color: #9ca3af; font-size: 11px; text-align: center;
+  padding: 4px 2px;
+}
+
+.toast {
+  position: fixed; bottom: 24px; right: 24px; padding: 12px 20px;
+  background: #1f2937; color: #fff; border-radius: 8px; font-size: 13px;
+  opacity: 0; transition: opacity 0.3s; z-index: 999; pointer-events: none;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Venue Editor</h1>
+  <span class="stats" id="stats"></span>
+  <span class="save-indicator saved" id="saveIndicator">Saved</span>
+
+  <span class="spacer"></span>
+
+  <input type="text" id="search" placeholder="Search..." oninput="renderTable()">
+  <select id="filterBldg" onchange="renderTable()"><option value="">All Bldgs</option></select>
+  <select id="filterSystem" onchange="renderTable()"><option value="">All Systems</option></select>
+  <label><input type="checkbox" id="filterModified" onchange="renderTable()"> Modified</label>
+  <span class="filter-count" id="filterCount"></span>
+
+  <span class="spacer"></span>
+
+  <button class="btn-secondary" onclick="addRow()">+ Add</button>
+  <button class="btn-secondary" onclick="importCSV()">Import</button>
+  <button class="btn-primary" onclick="exportCSV()">CSV</button>
+  <button class="btn-success" onclick="exportJSON()">JSON</button>
+  <button class="btn-danger" onclick="clearStorage()">Clear</button>
+</div>
+
+<div class="table-wrap" id="tableWrap">
+  <table>
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="toast" id="toast"></div>
+<input type="file" id="fileInput" accept=".csv" style="display:none" onchange="handleFile(event)">
+
+<script>
+const STORAGE_KEY = 'ucsd-venue-editor-data';
+const STORAGE_MOD_KEY = 'ucsd-venue-editor-modified';
+
+const FIELDS = [
+  // First 3 are frozen (index 0=#row, 1=bldg, 2=id)
+  { key: 'building_code', label: 'Bldg', type: 'text' },
+  { key: 'id', label: 'ID', type: 'text' },
+  // Rest scroll normally
+  { key: 'name', label: 'Name', class: 'col-loc', type: 'text' },
+  { key: 'type', label: 'Type', class: 'col-type', type: 'text' },
+  { key: 'location', label: 'Location', class: 'col-loc', type: 'text' },
+  { key: 'description', label: 'Description', class: 'col-desc', type: 'textarea' },
+  { key: 'system', label: 'System', class: 'col-type', type: 'text' },
+  { key: 'area_sqft', label: 'Area', class: 'col-num', type: 'number' },
+  { key: 'max_capacity', label: 'Max Cap', class: 'col-num', type: 'number' },
+  { key: 'capacity_theater', label: 'Cap Theater', class: 'col-num', type: 'number' },
+  { key: 'capacity_banquet', label: 'Cap Banquet', class: 'col-num', type: 'number' },
+  { key: 'capacity_classroom', label: 'Cap Class', class: 'col-num', type: 'number' },
+  { key: 'capacity_reception', label: 'Cap Recep', class: 'col-num', type: 'number' },
+  { key: 'capacity_boardroom', label: 'Cap Board', class: 'col-num', type: 'number' },
+  { key: 'capacity_hollow_square', label: 'Cap HolSq', class: 'col-num', type: 'number' },
+  { key: 'rate_rso', label: 'Rate RSO', class: 'col-rate', type: 'text' },
+  { key: 'rate_department', label: 'Rate Dept', class: 'col-rate', type: 'text' },
+  { key: 'rate_external', label: 'Rate External', class: 'col-rate', type: 'text' },
+  { key: 'rso_free', label: 'RSO Free', class: 'col-bool', type: 'checkbox' },
+  { key: 'managed_by', label: 'Managed By', class: 'col-type', type: 'text' },
+  { key: 'equipment', label: 'Equipment', class: 'col-equip', type: 'text' },
+  { key: 'booking_method', label: 'Booking', class: 'col-type', type: 'text' },
+  { key: 'contact', label: 'Contact', class: 'col-type', type: 'text' },
+  { key: 'notes', label: 'Notes', class: 'col-desc', type: 'text' },
+  { key: 'tags', label: 'Tags', class: 'col-tags', type: 'text' },
+  { key: 'cssa_recommended', label: 'CSSA', class: 'col-bool', type: 'checkbox' },
+  { key: 'category', label: 'Category', class: 'col-type', type: 'text' },
+];
+
+let venues = [];
+let original = [];
+let modified = new Set();
+let sortCol = null, sortAsc = true;
+let saveTimer = null;
+
+// --- localStorage persistence ---
+function saveToStorage() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(venues));
+    localStorage.setItem(STORAGE_MOD_KEY, JSON.stringify([...modified]));
+    updateSaveIndicator(true);
+  } catch(e) { console.warn('Storage save failed', e); }
+}
+
+function loadFromStorage() {
+  try {
+    const d = localStorage.getItem(STORAGE_KEY);
+    const m = localStorage.getItem(STORAGE_MOD_KEY);
+    if (d) {
+      venues = JSON.parse(d);
+      modified = m ? new Set(JSON.parse(m)) : new Set();
+      return true;
+    }
+  } catch(e) {}
+  return false;
+}
+
+function clearStorage() {
+  if (!confirm('Clear all cached edits and reload from CSV?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(STORAGE_MOD_KEY);
+  location.reload();
+}
+
+function updateSaveIndicator(saved) {
+  const el = document.getElementById('saveIndicator');
+  el.textContent = saved ? 'Saved' : 'Unsaved...';
+  el.className = 'save-indicator ' + (saved ? 'saved' : 'unsaved');
+}
+
+function scheduleSave() {
+  updateSaveIndicator(false);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveToStorage, 800);
+}
+
+// --- Init ---
+if (loadFromStorage()) {
+  original = JSON.parse(JSON.stringify(venues));
+  initFilters();
+  renderTable();
+  toast(`Restored ${venues.length} venues from cache (${modified.size} modified)`);
+} else {
+  fetch('venue-data-export.csv')
+    .then(r => r.text())
+    .then(csv => {
+      venues = parseCSV(csv);
+      original = JSON.parse(JSON.stringify(venues));
+      saveToStorage();
+      initFilters();
+      renderTable();
+    })
+    .catch(() => { toast('No CSV found. Import a file to start.'); });
+}
+
+// --- CSV parsing ---
+function parseCSV(text) {
+  const lines = text.split('\n');
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    if (!lines[i].trim()) continue;
+    const vals = parseCSVLine(lines[i]);
+    const row = {};
+    headers.forEach((h, j) => row[h] = vals[j] || '');
+    rows.push(row);
+  }
+  return rows;
+}
+
+function parseCSVLine(line) {
+  const result = []; let current = ''; let inQuotes = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuotes) {
+      if (c === '"' && line[i+1] === '"') { current += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { current += c; }
+    } else {
+      if (c === '"') { inQuotes = true; }
+      else if (c === ',') { result.push(current); current = ''; }
+      else { current += c; }
+    }
+  }
+  result.push(current);
+  return result;
+}
+
+function escapeCSV(val) {
+  val = String(val ?? '');
+  if (val.includes(',') || val.includes('"') || val.includes('\n')) {
+    return '"' + val.replace(/"/g, '""') + '"';
+  }
+  return val;
+}
+
+function initFilters() {
+  const bldgs = [...new Set(venues.map(v => v.building_code))].sort();
+  const systems = [...new Set(venues.map(v => v.system))].sort();
+  const bldgSel = document.getElementById('filterBldg');
+  const sysSel = document.getElementById('filterSystem');
+  // Reset options
+  bldgSel.innerHTML = '<option value="">All Buildings</option>';
+  sysSel.innerHTML = '<option value="">All Systems</option>';
+  bldgs.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; bldgSel.appendChild(o); });
+  systems.forEach(s => { const o = document.createElement('option'); o.value = s; o.textContent = s; sysSel.appendChild(o); });
+  document.getElementById('stats').textContent = `${venues.length} venues`;
+}
+
+function getFiltered() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const bldg = document.getElementById('filterBldg').value;
+  const sys = document.getElementById('filterSystem').value;
+  const modOnly = document.getElementById('filterModified').checked;
+
+  let rows = venues.map((v, i) => ({ ...v, _idx: i }));
+  if (q) rows = rows.filter(v => Object.values(v).some(val => String(val).toLowerCase().includes(q)));
+  if (bldg) rows = rows.filter(v => v.building_code === bldg);
+  if (sys) rows = rows.filter(v => v.system === sys);
+  if (modOnly) rows = rows.filter(v => modified.has(v._idx));
+
+  if (sortCol) {
+    rows.sort((a, b) => {
+      let va = a[sortCol] ?? '', vb = b[sortCol] ?? '';
+      const na = Number(va), nb = Number(vb);
+      if (!isNaN(na) && !isNaN(nb) && va !== '' && vb !== '') return sortAsc ? na - nb : nb - na;
+      return sortAsc ? String(va).localeCompare(String(vb)) : String(vb).localeCompare(String(va));
+    });
+  }
+  return rows;
+}
+
+function renderTable() {
+  const thead = document.getElementById('thead');
+  const tbody = document.getElementById('tbody');
+  const filtered = getFiltered();
+
+  document.getElementById('filterCount').textContent =
+    `${filtered.length}/${venues.length} shown` + (modified.size ? ` | ${modified.size} modified` : '');
+
+  // Header: # (freeze-0), Bldg (freeze-1), ID (freeze-2), ...rest
+  let hdr = '<tr>';
+  hdr += '<th class="row-num freeze freeze-0">#</th>';
+  hdr += `<th class="freeze freeze-1" onclick="sortBy('${FIELDS[0].key}')">${FIELDS[0].label}${sortCol===FIELDS[0].key?(sortAsc?' ↑':' ↓'):''}</th>`;
+  hdr += `<th class="freeze freeze-2" onclick="sortBy('${FIELDS[1].key}')">${FIELDS[1].label}${sortCol===FIELDS[1].key?(sortAsc?' ↑':' ↓'):''}</th>`;
+  for (let i = 2; i < FIELDS.length; i++) {
+    const f = FIELDS[i];
+    hdr += `<th class="${f.class||''}" onclick="sortBy('${f.key}')">${f.label}${sortCol===f.key?(sortAsc?' ↑':' ↓'):''}</th>`;
+  }
+  hdr += '<th style="min-width:32px"></th></tr>';
+  thead.innerHTML = hdr;
+
+  // Body
+  tbody.innerHTML = filtered.map(v => {
+    const idx = v._idx;
+    const isMod = modified.has(idx);
+    let row = `<tr class="${isMod ? 'modified' : ''}" data-idx="${idx}">`;
+    // Frozen col 0: row number
+    row += `<td class="row-num freeze freeze-0">${idx + 1}</td>`;
+    // Frozen col 1: building_code
+    row += `<td class="freeze freeze-1"><input type="text" value="${esc(v[FIELDS[0].key])}" onchange="updateCell(${idx},'${FIELDS[0].key}',this.value)"></td>`;
+    // Frozen col 2: id
+    row += `<td class="freeze freeze-2"><input type="text" value="${esc(v[FIELDS[1].key])}" onchange="updateCell(${idx},'${FIELDS[1].key}',this.value)"></td>`;
+    // Rest
+    for (let i = 2; i < FIELDS.length; i++) {
+      const f = FIELDS[i];
+      if (f.type === 'checkbox') {
+        const checked = v[f.key] === 'True' || v[f.key] === 'true' || v[f.key] === true;
+        row += `<td class="${f.class||''}"><input type="checkbox" ${checked ? 'checked' : ''} onchange="updateCell(${idx},'${f.key}',this.checked)"></td>`;
+      } else if (f.type === 'textarea') {
+        row += `<td class="${f.class||''}"><textarea onchange="updateCell(${idx},'${f.key}',this.value)" onblur="updateCell(${idx},'${f.key}',this.value)">${esc(v[f.key])}</textarea></td>`;
+      } else {
+        row += `<td class="${f.class||''}"><input type="${f.type}" value="${esc(v[f.key])}" onchange="updateCell(${idx},'${f.key}',this.value)"></td>`;
+      }
+    }
+    row += `<td><button onclick="deleteRow(${idx})" style="border:none;background:none;color:#ef4444;cursor:pointer;font-size:13px" title="Delete">✕</button></td>`;
+    row += '</tr>';
+    return row;
+  }).join('');
+}
+
+function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+function updateCell(idx, key, value) {
+  venues[idx][key] = value;
+  const orig = original[idx];
+  if (orig && orig[key] !== String(value)) { modified.add(idx); }
+  document.querySelector(`tr[data-idx="${idx}"]`)?.classList.toggle('modified', modified.has(idx));
+  document.getElementById('filterCount').textContent =
+    `${getFiltered().length}/${venues.length} shown` + (modified.size ? ` | ${modified.size} modified` : '');
+  scheduleSave();
+}
+
+function sortBy(col) {
+  if (sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = true; }
+  renderTable();
+}
+
+function addRow() {
+  const row = {};
+  FIELDS.forEach(f => row[f.key] = f.type === 'checkbox' ? false : '');
+  venues.push(row);
+  modified.add(venues.length - 1);
+  scheduleSave();
+  renderTable();
+  document.getElementById('tbody').lastElementChild?.scrollIntoView({ behavior: 'smooth' });
+  toast('New row added');
+}
+
+function deleteRow(idx) {
+  if (!confirm(`Delete "${venues[idx]?.name || 'this venue'}"?`)) return;
+  venues.splice(idx, 1);
+  original.splice(idx, 1);
+  modified = new Set([...modified].filter(i => i !== idx).map(i => i > idx ? i - 1 : i));
+  scheduleSave();
+  renderTable();
+  toast('Row deleted');
+}
+
+function exportCSV() {
+  const headers = FIELDS.map(f => f.key);
+  if (venues.length > 0) {
+    Object.keys(venues[0]).forEach(k => { if (!headers.includes(k) && k !== '_idx') headers.push(k); });
+  }
+  const lines = [headers.join(',')];
+  venues.forEach(v => { lines.push(headers.map(h => escapeCSV(v[h])).join(',')); });
+  download(lines.join('\n'), 'venue-data-export.csv', 'text/csv;charset=utf-8');
+  toast('CSV exported');
+}
+
+function exportJSON() {
+  const venueMap = {};
+  venues.forEach(v => {
+    const code = v.building_code;
+    if (!venueMap[code]) venueMap[code] = { spaces: [] };
+    const cap = {};
+    if (v.capacity_theater) cap.theater = Number(v.capacity_theater);
+    if (v.capacity_banquet) cap.banquet = Number(v.capacity_banquet);
+    if (v.capacity_classroom) cap.classroom = Number(v.capacity_classroom);
+    if (v.capacity_reception) cap.reception = Number(v.capacity_reception);
+    if (v.capacity_boardroom) cap.boardroom = Number(v.capacity_boardroom);
+    if (v.capacity_circle) cap.circle = Number(v.capacity_circle);
+    if (v.capacity_u_shape) cap.u_shape = Number(v.capacity_u_shape);
+    if (v.capacity_hollow_square) cap.hollow_square = Number(v.capacity_hollow_square);
+    if (v.capacity_max_standalone) cap.max = Number(v.capacity_max_standalone);
+    const space = {
+      id: v.id, name: v.name, category: v.category || '',
+      description: (v.description || '').replace(/ \| /g, '\n'),
+      system: v.system || '',
+      location: (v.location || '').replace(/ \| /g, '\n'),
+      area_sqft: v.area_sqft ? Number(v.area_sqft) : null,
+      capacity: cap,
+      max_capacity: v.max_capacity ? Number(v.max_capacity) : null,
+      type: v.type || '',
+      rates: {
+        rso: (v.rate_rso || '').replace(/ \| /g, '\n'),
+        department: (v.rate_department || '').replace(/ \| /g, '\n'),
+        external: (v.rate_external || '').replace(/ \| /g, '\n'),
+      },
+      rso_free: v.rso_free === true || v.rso_free === 'True' || v.rso_free === 'true',
+      managed_by: (v.managed_by || '').replace(/ \| /g, '\n'),
+      equipment: (v.equipment || '').split(' | ').filter(Boolean),
+      booking_method: (v.booking_method || '').replace(/ \| /g, '\n'),
+      contact: (v.contact || '').replace(/ \| /g, '\n'),
+      notes: (v.notes || '').replace(/ \| /g, '\n'),
+      tags: (v.tags || '').split(' | ').filter(Boolean),
+      cssa_recommended: v.cssa_recommended === true || v.cssa_recommended === 'True' || v.cssa_recommended === 'true',
+    };
+    venueMap[code].spaces.push(space);
+  });
+  const output = JSON.stringify({ venues: venueMap }, null, 2);
+  download(output, 'venues-export.json', 'application/json');
+  toast('JSON exported');
+}
+
+function download(content, filename, type) {
+  const blob = new Blob([content], { type });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+function importCSV() { document.getElementById('fileInput').click(); }
+
+function handleFile(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    venues = parseCSV(ev.target.result);
+    original = JSON.parse(JSON.stringify(venues));
+    modified = new Set();
+    saveToStorage();
+    initFilters();
+    renderTable();
+    toast(`Imported ${venues.length} venues from ${file.name}`);
+  };
+  reader.readAsText(file);
+  e.target.value = '';
+}
+
+// Drag & drop
+document.addEventListener('dragover', e => e.preventDefault());
+document.addEventListener('drop', e => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  if (file && file.name.endsWith('.csv')) {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      venues = parseCSV(ev.target.result);
+      original = JSON.parse(JSON.stringify(venues));
+      modified = new Set();
+      saveToStorage();
+      initFilters();
+      renderTable();
+      toast(`Imported ${venues.length} venues`);
+    };
+    reader.readAsText(file);
+  }
+});
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>

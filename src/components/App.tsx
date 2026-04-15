@@ -4,7 +4,7 @@ import { coursesToClassrooms, TermBuildings } from "../lib/coursesToClassrooms";
 import { Day } from "../lib/Day";
 import { getHolidays } from "../lib/holidays";
 import { mapPosition, northeast, PADDING, southwest } from "../lib/locations";
-import { fromViewTerm, MomentContext } from "../lib/moment-context";
+import { fromViewTerm, MomentContext, toViewTerm } from "../lib/moment-context";
 import { Course } from "../lib/section-types";
 import { Term, TermCache, TermError } from "../lib/TermCache";
 import {
@@ -36,6 +36,35 @@ import { SearchBar, State } from "./search/SearchBar";
 import { TermStatus } from "./TermStatus";
 import { Time } from "../lib/Time";
 import { useStableCallback } from "../lib/useStable";
+import { AppMode, ModeToggle } from "./ModeToggle";
+import { VenuePanel } from "./venue/VenuePanel";
+import {
+  VenueFilter,
+  VenueFilters,
+  matchesVenueType,
+  DEFAULT_FILTERS,
+} from "./venue/VenueFilter";
+import {
+  hasVenues,
+  getBuildingVenueCount,
+  getAllVenues,
+  VenueSpace,
+  venues as venueDataImport,
+} from "../lib/venues";
+import { ClassroomPanel } from "./classroom/ClassroomPanel";
+import {
+  ClassroomFilter,
+  ClassroomFilters,
+  DEFAULT_CLASSROOM_FILTERS,
+  matchesClassroomFilters,
+  getFilteredClassroomBuildingCodes,
+  countFilteredClassrooms,
+} from "./classroom/ClassroomFilter";
+import {
+  hasClassrooms,
+  getBuildingClassroomCount,
+  classrooms as classroomDataImport,
+} from "../lib/classrooms";
 
 /**
  * Represents the state of the app:
@@ -87,7 +116,56 @@ function getTerms({ year, season, current }: CurrentTerm): Term[] {
 export type AppProps = {
   title: string;
 };
+function matchesVenueFilters(
+  space: VenueSpace,
+  filters: VenueFilters
+): boolean {
+  if (filters.search) {
+    const s = filters.search.toLowerCase();
+    const searchable = `${space.name} ${space.description} ${space.location} ${space.tags.join(" ")} ${space.notes}`.toLowerCase();
+    if (!searchable.includes(s)) return false;
+  }
+  if (filters.capacityRange) {
+    const [min, max] = filters.capacityRange;
+    const cap = space.max_capacity ?? 0;
+    if (cap < min || cap > max) return false;
+  }
+  if (filters.systems.length > 0) {
+    if (!filters.systems.includes(space.system)) return false;
+  }
+  if (filters.tags.length > 0) {
+    if (!filters.tags.some((tag) => space.tags.includes(tag))) return false;
+  }
+  if (filters.venueTypes.length > 0) {
+    if (!filters.venueTypes.some((vt) => matchesVenueType(space.type, vt))) return false;
+  }
+  if (filters.rsoFreeOnly && !space.rso_free) return false;
+  return true;
+}
+
+function getFilteredBuildingCodes(filters: VenueFilters): Set<string> {
+  const codes = new Set<string>();
+  for (const [code, bldg] of Object.entries(venueDataImport.venues)) {
+    if (bldg.spaces.some((s) => matchesVenueFilters(s, filters))) {
+      codes.add(code);
+    }
+  }
+  return codes;
+}
+
+function countFilteredVenues(filters: VenueFilters): number {
+  let count = 0;
+  for (const bldg of Object.values(venueDataImport.venues)) {
+    count += bldg.spaces.filter((s) => matchesVenueFilters(s, filters)).length;
+  }
+  return count;
+}
+
 export function App({ title }: AppProps) {
+  const [mode, setMode] = useState<AppMode>("classroom");
+  const [venueFilters, setVenueFilters] = useState<VenueFilters>(DEFAULT_FILTERS);
+  const [classroomFilters, setClassroomFilters] = useState<ClassroomFilters>(DEFAULT_CLASSROOM_FILTERS);
+  const [highlightBuilding, setHighlightBuilding] = useState<string | null>(null);
   const [realTime, setRealTime] = useState(true);
   const [moment, setMoment] = useState(() => fromViewTerm(null));
   useEffect(() => {
@@ -340,157 +418,181 @@ export function App({ title }: AppProps) {
     moment.currentTerm.season
   );
 
+  const isVenueMode = mode === "venue";
+  const isClassroomMode = mode === "classroom";
+  const filteredVenueBuildings = useMemo(
+    () => (isVenueMode ? getFilteredBuildingCodes(venueFilters) : new Set<string>()),
+    [isVenueMode, venueFilters]
+  );
+  const filteredVenueCount = useMemo(
+    () => (isVenueMode ? countFilteredVenues(venueFilters) : 0),
+    [isVenueMode, venueFilters]
+  );
+  const filteredClassroomBuildings = useMemo(
+    () => (isClassroomMode ? getFilteredClassroomBuildingCodes(classroomFilters) : new Set<string>()),
+    [isClassroomMode, classroomFilters]
+  );
+  const filteredClassroomCount = useMemo(
+    () => (isClassroomMode ? countFilteredClassrooms(classroomFilters) : 0),
+    [isClassroomMode, classroomFilters]
+  );
+
   return (
     <OnView.Provider value={handleView_s}>
       <MomentContext.Provider value={moment}>
-        <SearchBar
-          state={searchState}
-          terms={terms}
-          termId={termId}
-          buildings={state?.buildings ? Object.keys(state?.buildings) : []}
-          showResults={showResults}
-          onSearch={(showResults) => {
-            setShowResults(showResults);
-            const currentView = viewFromUrl(window.location.href);
-            navigate(handleView_s, {
-              view: { ...currentView, searching: showResults },
-              back: ([previous]) => {
-                if (
-                  showResults ||
-                  !previous ||
-                  previous.type !== currentView.type ||
-                  !viewTermsEqual(previous.term, currentView.term)
-                ) {
-                  return null;
-                }
-                if (!previous.searching) {
-                  return 0;
-                } else {
-                  return null;
-                }
-              },
-            });
-            if (
-              searchState.type === "unloaded" ||
-              (searchState.type === "loaded" && searchState.termId !== termId)
-            ) {
-              loadTerms(terms, termId);
-            }
-          }}
-          visible={!noticeVisible}
-        />
-        <ResultModal view={modalView} open={modal !== null} />
-        <div
-          className={`corner ${
-            buildingPanelVisible ? "bottom-panel-open" : ""
-          } ${datePanelVisible ? "date-panel-open" : ""}`}
-        >
-          <DateTimeButton
-            onClick={() => setShowDatePanel(true)}
-            disabled={datePanelVisible}
-          />
-          <div className="term-buttons">
-            {[-4, -3, -2, -1, 0, 1, 2, 3, 4].map((offset) => {
-              const id = currentTermId + offset;
-              const { year, quarter } = fromTermId(id);
-              // I don't remember how to get the View, but this should only be
-              // clickable for the building and default views
-              return (
-                <Link
-                  className={`term-button ${
-                    id === currentTermId && moment.currentTerm.current
-                      ? "term-button-selected"
-                      : ""
-                  } ${
-                    MIN_TERM_ID <= id && id <= MAX_TERM_ID
-                      ? ""
-                      : "term-button-hidden"
-                  }`}
-                  view={
-                    // The off-screen terms are just for the smooth animation,
-                    // so don't make them clickable
-                    Math.abs(offset) > 2
-                      ? null
-                      : buildingCode !== null
-                      ? { type: "building", building: buildingCode, room: room }
-                      : { type: "default" }
+        {!isVenueMode && !isClassroomMode && (
+          <SearchBar
+            state={searchState}
+            terms={terms}
+            termId={termId}
+            buildings={state?.buildings ? Object.keys(state?.buildings) : []}
+            showResults={showResults}
+            onSearch={(showResults) => {
+              setShowResults(showResults);
+              const currentView = viewFromUrl(window.location.href);
+              navigate(handleView_s, {
+                view: { ...currentView, searching: showResults },
+                back: ([previous]) => {
+                  if (
+                    showResults ||
+                    !previous ||
+                    previous.type !== currentView.type ||
+                    !viewTermsEqual(previous.term, currentView.term)
+                  ) {
+                    return null;
                   }
-                  aria-hidden={Math.abs(offset) > 2 ? "true" : undefined}
-                  term={{ year, season: quarter }}
-                  key={id}
-                  style={{
-                    transform: `translateX(${
-                      -50 +
-                      (offset + (moment.currentTerm.current ? 0 : 0.5)) * 110
-                    }%)`,
-                  }}
-                >
-                  {termCode(year, quarter)}
-                </Link>
-              );
-            })}
-          </div>
-          <TermStatus statuses={state?.status} />
-          <p className="credit">
-            Made by{" "}
-            <a href="https://www.instagram.com/sheeptester/" className="link">
-              @sheeptester
-            </a>
-            .{" "}
-            <a
-              href="https://github.com/SheepTester/ucsd-classrooms"
-              className="link"
-            >
-              GitHub
-            </a>
-          </p>
-        </div>
-        <DateTimePanel
-          date={moment.date}
-          onDate={(date: Day) => {
-            navigate(handleView_s, {
-              view: {
-                ...viewFromUrl(window.location.href),
-                term: { ...moment, date },
-              },
-            });
-          }}
-          time={moment.time}
-          onTime={(time) => {
-            navigate(handleView_s, {
-              view: {
-                ...viewFromUrl(window.location.href),
-                term: { ...moment, time },
-              },
-            });
-          }}
-          useNow={realTime}
-          onUseNow={(useNow) => {
-            if (useNow === realTime) {
-              return;
-            }
-            navigate(handleView_s, {
-              view: {
-                ...viewFromUrl(window.location.href),
-                term: useNow ? null : moment,
-              },
-            });
-          }}
-          visible={datePanelVisible}
-          closeable={!noticeVisible || state === null}
-          className={`${
-            buildingPanelVisible ? "date-time-panel-bottom-panel" : ""
-          } ${noticeVisible ? "date-time-panel-notice-visible" : ""}`}
-          onClose={() => setShowDatePanel(false)}
-        />
-        <div className="buildings-wrapper">
-          <p
-            className={`notice ${noticeVisible ? "notice-visible" : ""} ${
-              datePanelVisible ? "notice-date-open" : ""
-            }`}
+                  if (!previous.searching) {
+                    return 0;
+                  } else {
+                    return null;
+                  }
+                },
+              });
+              if (
+                searchState.type === "unloaded" ||
+                (searchState.type === "loaded" && searchState.termId !== termId)
+              ) {
+                loadTerms(terms, termId);
+              }
+            }}
+            visible={!noticeVisible}
+          />
+        )}
+        <ModeToggle mode={mode} onModeChange={setMode} />
+        <ResultModal view={modalView} open={modal !== null} />
+        {!isVenueMode && !isClassroomMode && (
+          <div
+            className={`corner ${
+              buildingPanelVisible ? "bottom-panel-open" : ""
+            } ${datePanelVisible ? "date-panel-open" : ""}`}
           >
-            <span className="notice-text">{notice}</span>
-          </p>
+            <DateTimeButton
+              onClick={() => setShowDatePanel(true)}
+              disabled={datePanelVisible}
+            />
+            <div className="term-buttons">
+              {[-4, -3, -2, -1, 0, 1, 2, 3, 4].map((offset) => {
+                const id = currentTermId + offset;
+                const { year, quarter } = fromTermId(id);
+                return (
+                  <Link
+                    className={`term-button ${
+                      id === currentTermId && moment.currentTerm.current
+                        ? "term-button-selected"
+                        : ""
+                    } ${
+                      MIN_TERM_ID <= id && id <= MAX_TERM_ID
+                        ? ""
+                        : "term-button-hidden"
+                    }`}
+                    view={
+                      Math.abs(offset) > 2
+                        ? null
+                        : buildingCode !== null
+                        ? { type: "building", building: buildingCode, room: room }
+                        : { type: "default" }
+                    }
+                    aria-hidden={Math.abs(offset) > 2 ? "true" : undefined}
+                    term={{ year, season: quarter }}
+                    key={id}
+                    style={{
+                      transform: `translateX(${
+                        -50 +
+                        (offset + (moment.currentTerm.current ? 0 : 0.5)) * 110
+                      }%)`,
+                    }}
+                  >
+                    {termCode(year, quarter)}
+                  </Link>
+                );
+              })}
+            </div>
+            <TermStatus statuses={state?.status} />
+            <p className="credit">
+              Made by{" "}
+              <a href="https://www.instagram.com/sheeptester/" className="link">
+                @sheeptester
+              </a>
+              .{" "}
+              <a
+                href="https://github.com/SheepTester/ucsd-classrooms"
+                className="link"
+              >
+                GitHub
+              </a>
+            </p>
+          </div>
+        )}
+        {!isVenueMode && !isClassroomMode && (
+          <DateTimePanel
+            date={moment.date}
+            onDate={(date: Day) => {
+              navigate(handleView_s, {
+                view: {
+                  ...viewFromUrl(window.location.href),
+                  term: { ...moment, date },
+                },
+              });
+            }}
+            time={moment.time}
+            onTime={(time) => {
+              navigate(handleView_s, {
+                view: {
+                  ...viewFromUrl(window.location.href),
+                  term: { ...moment, time },
+                },
+              });
+            }}
+            useNow={realTime}
+            onUseNow={(useNow) => {
+              if (useNow === realTime) {
+                return;
+              }
+              navigate(handleView_s, {
+                view: {
+                  ...viewFromUrl(window.location.href),
+                  term: useNow ? null : moment,
+                },
+              });
+            }}
+            visible={datePanelVisible}
+            closeable={!noticeVisible || state === null}
+            className={`${
+              buildingPanelVisible ? "date-time-panel-bottom-panel" : ""
+            } ${noticeVisible ? "date-time-panel-notice-visible" : ""}`}
+            onClose={() => setShowDatePanel(false)}
+          />
+        )}
+        <div className="buildings-wrapper">
+          {!isVenueMode && !isClassroomMode && (
+            <p
+              className={`notice ${noticeVisible ? "notice-visible" : ""} ${
+                datePanelVisible ? "notice-date-open" : ""
+              }`}
+            >
+              <span className="notice-text">{notice}</span>
+            </p>
+          )}
           <div className="buildings">
             <div
               className="scroll-area"
@@ -514,26 +616,98 @@ export function App({ title }: AppProps) {
                 scrollTarget={
                   building.code === scrollTo.building ? scrollTo : null
                 }
-                visible={!!state?.buildings && building.code in state.buildings}
+                visible={
+                  isVenueMode
+                    ? hasVenues(building.code) && filteredVenueBuildings.has(building.code)
+                    : isClassroomMode
+                    ? hasClassrooms(building.code) && filteredClassroomBuildings.has(building.code)
+                    : !!state?.buildings && building.code in state.buildings
+                }
+                venueMode={isVenueMode}
+                venueCount={isVenueMode ? getBuildingVenueCount(building.code) : 0}
+                venueSystemId={
+                  isVenueMode
+                    ? venueDataImport.venues[building.code]?.spaces[0]?.system
+                    : undefined
+                }
+                classroomMode={isClassroomMode}
+                classroomCount={isClassroomMode ? getBuildingClassroomCount(building.code) : 0}
+                highlight={building.code === highlightBuilding}
               />
             ))}
           </div>
         </div>
-        <BuildingPanel
-          building={
-            buildings[lastBuilding] ?? {
-              code: lastBuilding,
-              college: "",
-              images: "",
-              location: [0, 0],
-              name: lastBuilding,
+        {isVenueMode ? (
+          <>
+            <VenuePanel
+              building={
+                buildings[lastBuilding] ?? {
+                  code: lastBuilding,
+                  college: "",
+                  images: [],
+                  location: [0, 0],
+                  name: lastBuilding,
+                }
+              }
+              visible={buildingPanelVisible}
+              rightPanelOpen={datePanelVisible}
+              onClose={() => navigate(handleView_s, { view: { type: "default", term: toViewTerm(moment) } })}
+            />
+            <VenueFilter
+              filters={venueFilters}
+              onChange={setVenueFilters}
+              resultCount={filteredVenueCount}
+              onScrollToBuilding={(code) => {
+                setScrollTo({ building: code, init: false });
+                setHighlightBuilding(code);
+                setTimeout(() => setHighlightBuilding(null), 2000);
+              }}
+            />
+          </>
+        ) : isClassroomMode ? (
+          <>
+            <ClassroomPanel
+              building={
+                buildings[lastBuilding] ?? {
+                  code: lastBuilding,
+                  college: "",
+                  images: [],
+                  location: [0, 0],
+                  name: lastBuilding,
+                }
+              }
+              visible={buildingPanelVisible}
+              rightPanelOpen={datePanelVisible}
+              onClose={() => navigate(handleView_s, { view: { type: "default", term: toViewTerm(moment) } })}
+            />
+            <ClassroomFilter
+              filters={classroomFilters}
+              onChange={setClassroomFilters}
+              resultCount={filteredClassroomCount}
+              onScrollToBuilding={(code) => {
+                setScrollTo({ building: code, init: false });
+                setHighlightBuilding(code);
+                setTimeout(() => setHighlightBuilding(null), 2000);
+              }}
+            />
+          </>
+        ) : (
+          <BuildingPanel
+            building={
+              buildings[lastBuilding] ?? {
+                code: lastBuilding,
+                college: "",
+                images: "",
+                location: [0, 0],
+                name: lastBuilding,
+              }
             }
-          }
-          room={room}
-          rooms={state?.buildings?.[lastBuilding] ?? {}}
-          visible={buildingPanelVisible}
-          rightPanelOpen={datePanelVisible}
-        />
+            room={room}
+            rooms={state?.buildings?.[lastBuilding] ?? {}}
+            visible={buildingPanelVisible}
+            rightPanelOpen={datePanelVisible}
+          />
+        )}
       </MomentContext.Provider>
     </OnView.Provider>
   );
