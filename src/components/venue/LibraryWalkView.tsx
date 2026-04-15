@@ -7,10 +7,10 @@ type LibraryWalkViewProps = {
 };
 
 const WALK_PHOTOS = [
-  "/venue-images/library-walk/hero-1.jpg",
-  "/venue-images/library-walk/hero-2.jpg",
-  "/venue-images/library-walk/hero-3.jpg",
-  "/venue-images/library-walk/hero-4.jpg",
+  "./venue-images/library-walk/hero-1.jpg",
+  "./venue-images/library-walk/hero-2.jpg",
+  "./venue-images/library-walk/hero-3.jpg",
+  "./venue-images/library-walk/hero-4.jpg",
 ];
 
 // Three segments of Library Walk with their numbering ranges

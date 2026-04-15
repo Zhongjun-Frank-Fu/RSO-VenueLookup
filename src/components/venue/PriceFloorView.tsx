@@ -28,14 +28,14 @@ const FLOORS: FloorInfo[] = [
     id: "l2",
     label: "L2",
     description: "Ballrooms, meeting rooms, The LOFT, Dance Studio",
-    floorPlanImage: "/venue-images/price-center/floor-L2.jpg",
+    floorPlanImage: "./venue-images/price-center/floor-L2.jpg",
     match: (s) => (s.floor ?? s.location ?? "").includes("L2"),
   },
   {
     id: "l3",
     label: "L3",
     description: "Warren College Room, Sixth College Room",
-    floorPlanImage: "/venue-images/price-center/floor-L3.jpg",
+    floorPlanImage: "./venue-images/price-center/floor-L3.jpg",
     match: (s) => (s.floor ?? s.location ?? "").includes("L3"),
   },
   {
